@@ -1,0 +1,19 @@
+import rasa
+
+rasa.cli.run(cmdline_args=["train", "--config", "config.yml", "--out", "models/current/nlu"])
+
+python 3.8
+python -m venv venv
+.\venv\Scripts\activate
+python -m pip install -U pip
+pip install rasa
+pip install spacy
+python -m spacy download en_core_web_md
+pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
+rasa train nlu
+rasa shell nlu
+rasa train
+rasa run actions
+rasa shell
+rasa telemetry disable
+pip cache purge
