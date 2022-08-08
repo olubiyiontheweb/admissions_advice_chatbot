@@ -1,0 +1,59 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- greet
+- buy_phone_laptop
+- latest_news_phones_laptops
+- give_information
+- goodbye
+- budget_available
+- out_of_scope
+
+entities:
+- category
+- RAM
+- battery
+- camera
+
+responses:
+  utter_how_can_I_help:
+  - text: Welcome. I'm your shopping bot. I can help you with finding a phone or laptop
+      and providing latest news for them.
+  utter_ask_ram:
+  - text: How much GB RAM are you looking for?
+  utter_ask_camera:
+  - text: What megapixel camera are you looking for?
+  utter_ask_battery:
+  - text: How much battery capacity are you looking for in the mobile?
+  utter_ask_budget:
+  - text: Whats your budget?
+  utter_wrong_budget:
+  - text: Please enter the budget in USD and below 4000.
+  utter_wrong_ram:
+  - text: Please enter the correct value for ram.
+  utter_wrong_battery:
+  - text: Please enter the correct value for battery.
+  utter_wrong_camera:
+  - text: PLease enter the correct value for camera.
+  utter_ask_battery_backup:
+  - text: Whats the minimum battery backup you are looking at?
+  utter_ask_storage_capacity:
+  - text: Whats the storage capacity you are looking for?
+  utter_wrong_battery_backup:
+  - text: Please enter correct value for battery backup (in hours).
+  utter_wrong_storage_capacity:
+  - text: Please enter correct storage capacity in GBs.
+  utter_goodbye:
+  - text: It was great talking to you! Goodbye!!
+actions:
+- utter_how_can_I_help
+- utter_ask_ram
+- utter_ask_camera
+- utter_ask_battery
+- utter_goodbye
+- action_search
+- action_show_latest_news

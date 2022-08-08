@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-RAM",
+      "2": "I-RAM",
+      "3": "L-RAM",
+      "4": "U-RAM",
+      "5": "B-battery",
+      "6": "I-battery",
+      "7": "L-battery",
+      "8": "U-battery",
+      "9": "B-camera",
+      "10": "I-camera",
+      "11": "L-camera",
+      "12": "U-camera",
+      "13": "B-category",
+      "14": "I-category",
+      "15": "L-category",
+      "16": "U-category",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-RAM": 1,
+      "I-RAM": 2,
+      "L-RAM": 3,
+      "U-RAM": 4,
+      "B-battery": 5,
+      "I-battery": 6,
+      "L-battery": 7,
+      "U-battery": 8,
+      "B-camera": 9,
+      "I-camera": 10,
+      "L-camera": 11,
+      "U-camera": 12,
+      "B-category": 13,
+      "I-category": 14,
+      "L-category": 15,
+      "U-category": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

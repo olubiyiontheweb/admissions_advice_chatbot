@@ -1,0 +1,138 @@
+version: "3.1"
+
+stories:
+- story: greet + show_phones
+  steps:
+  - intent: greet
+  - action: utter_how_can_I_help
+  - intent: buy_phone_laptop
+  - action: product_search_form
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: greet + show_phones_featurized_slots
+  steps:
+    - intent: greet
+    - action: utter_how_can_I_help
+    - intent: buy_phone_laptop
+      entities: 
+        - category: phone
+    - slot_was_set:
+      - category: phone
+    - action: product_search_form
+    - slot_was_set:
+      - requested_slot: ram
+    - intent: goodbye
+    - action: product_search_form
+    - slot_was_set:
+      - ram: null
+    - intent: give_information
+    - action: product_search_form
+    - slot_was_set:
+      - ram: null
+    - intent: give_information
+    - action: product_search_form
+    - slot_was_set:
+      - ram: 8
+    - intent: give_information
+    - action: product_search_form
+    - slot_was_set:
+      - battery: 6000
+    - intent: give_information
+    - action: product_search_form
+    - slot_was_set:
+      - camera: 50
+    - intent: give_information
+    - action: product_search_form
+    - slot_was_set:
+      - budget: 500
+    - intent: goodbye
+    - action: utter_goodbye
+    - intent: out_of_scope
+    - action: action_my_fallback
+
+- story: greet + fallback + search + news
+  steps:
+  - intent: greet
+  - action: utter_how_can_I_help
+  - intent: goodbye
+  - action: action_my_fallback
+  - slot_was_set:
+    - category: laptop
+  - intent: buy_phone_laptop
+    entities: 
+      - category: laptop
+  - action: product_search_form
+  - slot_was_set:
+    - requested_slot: ram
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - ram: 4
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - battery_backup: 10 hours
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - storage_capacity: 256 GB
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - budget: 500
+  - intent: out_of_scope
+  - action: action_my_fallback
+  - slot_was_set:
+    - category: laptop
+  - intent: latest_news_phones_laptops
+    entities: 
+      - category: laptop
+  - action: action_show_latest_news
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: greet + featurized_slots_laptops
+  steps:
+  - intent: greet
+  - action: utter_how_can_I_help
+  - slot_was_set:
+    - category: laptop
+  - intent: buy_phone_laptop
+    entities: 
+      - category: laptop
+  - action: product_search_form
+  - slot_was_set:
+    - requested_slot: ram
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - ram: 8
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - battery_backup: 8 hours
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - storage_capacity: 256 GB
+  - intent: give_information
+  - action: product_search_form
+  - slot_was_set:
+    - budget: 800
+
+- story: greet + show_latest_news
+  steps:
+  - intent: greet
+  - action: utter_how_can_I_help
+  - intent: latest_news_phones_laptops
+    entities: 
+      - category: "phone"
+  - action: action_show_latest_news
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: out_of_scope_intent
+  steps:
+  - intent: out_of_scope
+  - action: action_my_fallback

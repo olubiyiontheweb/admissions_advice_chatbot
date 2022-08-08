@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # custom additions
-test_bot/
 *models/*
+*cache/*
