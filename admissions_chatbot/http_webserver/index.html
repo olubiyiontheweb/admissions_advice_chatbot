@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Interactive Admissions Chatbot</title>
+        <meta name="description" content="This chatbot is used to help prospective students find the right program for them.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div 
+            id="rasa-chat-widget"
+            data-root-element-id="addmissions-advice-chatbot-widget"
+            data-websocket-url="http://localhost:5005"
+            data-avatar-url="http://localhost:8000/bot_avatar.png"
+            data-avatar-background="#00828b"
+            data-height="500"
+            data-width="500"
+            data-primary="#ce0058"
+            data-primary-highlight="#00828b"
+            data-default-open=true>
+        </div>
+        <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+    </body>
+</html>

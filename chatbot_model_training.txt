@@ -1,9 +1,0 @@
-python -m venv venv
-venv\scripts\activate
-pip install -r requirements.txt
-rasa train nlu
-rasa train
-rasa telemetry disable
-rasa shell nlu
-rasa shell
-rasa run actions
