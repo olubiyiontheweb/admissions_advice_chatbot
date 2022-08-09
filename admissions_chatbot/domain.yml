@@ -9,6 +9,11 @@ intents:
   - mood_unhappy
   - bot_challenge
 
+entities:
+  - course
+  - university
+  - faculty
+
 responses:
   utter_greet:
   - text: "Hey! How are you?"

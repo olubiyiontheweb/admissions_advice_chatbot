@@ -1,91 +1,304 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: greetings
   examples: |
+    - ma
+    - ma'am
+    - sir
+    - hi
+    - hi there
+    - hi i am
     - hey
     - hello
-    - hi
+    - hello i am
+    - dear sir
+    - dear ma
     - hello there
-    - good morning
-    - good evening
     - moin
+    - morning
     - hey there
-    - let's go
-    - hey dude
+    - are you there
     - goodmorning
+    - good morning
+    - good morning sir
+    - good morning ma
     - goodevening
+    - good evening
+    - good evening sir
+    - good evening ma
+    - goodafternoon
     - good afternoon
+    - good afternoon sir
+    - good afternoon ma
+    - how are you
+    - how are you doing
+    - how are you doing today
+    - how are you doing today sir
+    - how are you doing today ma
 
-- intent: goodbye
+- intent: Accept
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-- intent: affirm
-  examples: |
-    - yes
     - y
+    - yep
+    - yup
+    - yes
+    - yeah
     - indeed
     - of course
     - that sounds good
     - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
-  examples: |
     - perfect
     - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
 
-- intent: mood_unhappy
+- intent: Decline
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - n
+    - no
+    - never
+    - no way
+    - not that
+    - not really
+    - not really sure
+    - I don't think so
+    - don't like that
 
-- intent: bot_challenge
+- intent: farewell
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - cu
+    - bye
+    - bye bye
+    - good by
+    - goodbye
+    - good night
+    - cee you later
+    - see you around
+    - see you later
+    - have a nice day
+    - thanks
+
+- intent: ask_course_list
+  - what are the courses
+  - what are the courses available
+  - do you have courses related to
+  - do you have {course}
+  - do you have {course} available
+  - which {level} courses are available
+
+- intent: ask_course_details
+examples: |
+  - what is it about
+  - what is the course about
+  - what are the course contents
+  - send me the link to the course
+
+- intent: select_course
+examples: |
+  - select {course}
+  - does the university offer {course}
+
+- intent: ask_entry_requirements
+examples: |
+  - what are the entry requirements
+  - what are the entry requirements for {course}
+  - what are the entry requirements for this course
+
+- intent: ask_course_fee
+examples: |
+  - what is the tuition fee
+  - what is the course fee
+  - what is the course fee for {international} students
+  - how much is the course fee for {international} students
+  - what is the course fee for {home} students
+  - how much is the course fee for {home} students
+  - how much does it cost to enroll in {course}
+  - what is the course fee for {course}
+  - How much does it cost?
+  - how much is the tuition fee for {course}
+  - how much is the tuition fee for {course} for {international} students
+  - How much does it cost to study {course}
+
+- intent: ask_payment_question
+examples: |
+  - how do i pay
+  - When do I pay?
+  - I've decided to withdraw from my course - can I get a refund?
+  - can I get a refund?
+  - how do I pay tuition
+  - how do I make a payment
+  - how do I make my tuition deposit
+  - when should I make my tuition deposit
+  - how can i get a refund?
+  - how can i process my refund?
+  - how do i apply for a refund?
+  - I'm a sponsored student - what do I need to do?
+  - what do I need to do to get a refund?
+  - what do I need to do as a sponsored student?
+
+- intent: ask_scholarship_question
+examples: |
+  - do I get a scholarship
+  - can I get a scholarship
+  - is any funding available
+  - do I need to pay any tuition fees
+  - how do I get a scholarship
+  - where do I get a scholarship
+  - how do I apply for a scholarship
+  - how can I get financial help
+  - how can I get financial support
+  - I need some financial help
+  - I need some financial support
+
+- intent: ask_course_start_date
+examples: |
+  - when is the course starting
+  - what is the course starting date
+  - when does it start
+  - when does the course start
+  - on what date does the course start
+  - what is the next starting date for the course
+
+- intent: ask_university_contact
+examples: |
+  - what is your email address
+  - how do I contact the 
+  - what is your contact number
+  - how can I contact you
+  - I have more questions
+  - how can I reach you
+  - do you have an email address
+  - do you have a phone number
+
+- intent: ask_university_address
+examples: |
+  - where are you located
+  - what is your address
+  - how can I locate you
+  - where is your location
+  - where is your university located
+  - how can I locate the university
+  - where is the university of {university} located
+  - where is the {university} located
+
+- intent: ask_how_to_apply
+examples: |
+  - how do I apply
+  - how can I apply
+  - where do I apply
+  - where do I apply for the course
+  - how do I apply for {course}
+  - how do I apply for {course} at {university}
+
+- intent: ask_deposit_amount
+examples: |
+  - what is the deposit amount
+  - how much depost is required
+  - how much is the deposit
+  - how much deposit do I need to pay
+  - how much do I need to pay before I can start the course
+  - how much do I need to pay to get an unconditional offer
+  - how much payment do I need to make before I can start the course
+  - how much do I need to pay after receiving my conditional offer
+
+- intent: ask_academic_level
+examples: |
+  - what is the academic level
+  - i want a {academic_level} course
+  - i want a {academic_level} course at {university}
+  - show me a {academic_level} course
+  - I'm looking for a {academic_level} course
+  - which {academic_level} course should I take
+
+- intent: ask_how_long_feedback
+examples: |
+  - how long is the feedback period
+  - when should i expect the feedback
+  - when should I expect a feedback
+  - when should I expect a response for the application
+  - when should I expect a response for my application for {course}
+  - How long does it take to get a response from the university
+
+- intent: ask_visa_international_students
+examples: |
+  - do you accept international students
+  - do you accept international students for {course}
+  - how do I apply for my visa
+  - what is the visa application process
+  - what do I need to do to apply for a visa
+  - do I need a sponsorship visa from your university
+
+- intent: ask_admission_process_fee
+examples: |
+  - does the university charge a fee for admission
+  - do you charge a fee for admission
+  - do you charge a fee for admission for {course}
+  - what is the application fee for {course}
+  - do you charge an application fee
+
+- intent: ask_admission_process_duration
+examples: |
+  - how long is the admission process
+  - how long does the admission process last
+  - how long is the admission process for {course}
+
+- intent: ask_faculty
+examples: |
+  - who is the faculty
+  - who is the faculty of {course}
+  - who is the faculty of {course} at {university}
+  - how many faculties are there
+  - how many faculties are there at {university}
+  - how many faculties are available at {university}
+
+- intent: ask_faculty_name
+examples: |
+  - what faculty is {course} in
+  - what faculty is {course} at {university} in
+  - list of courses offered by {faculty_name}
+  - list of courses offered by the faculty of {faculty_name}
+  - show me courses in {faculty_name}
+
+- intent: ask_future_prospects
+examples: |
+  - what are the future prospects of {course}
+  - what kind of career opportunities are there for {course}
+  - career prospects for {course}
+  - career routes for {course}
+  - which careers does {course} offer
+  - which careers does this {course} prepare me for
+  - which careers are available for {course}
+
+- intent: ask_why_university
+examples: |
+  - why should I choose {university}
+  - why should I apply to the university of {university}
+  - why should I apply to {university}
+  - what is the reason for choosing {university}
+  - why do people choose {university}
+  - why do students attend the university of {university}
+  - why do students choose {university}
+  - is the university of {university} good for me
+  - what is the ranking of {university}
+  - what is the ranking of {university} in the {country}
+
+- intent: ask_academic_calendar
+examples: |
+  - can I see the academic calendar
+  - can I see the academic calendar for this year
+  - send me the link to the academic calendar
+  - where can I find the academic calendar
+  - where can I find the academic calendar for this year
+
+- intent: out_of_scope
+examples: |
+  - blablablablalblab
+  - asdasdasdasd
+  - hmm
+  - hmmmmmm
+  - hahahha
+  - whats the weather update
+  - im sleeping
+  - my budget
+  - my budget is
+  - ..
+  - what else can you do
