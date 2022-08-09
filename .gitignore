@@ -129,9 +129,11 @@ dmypy.json
 .pyre/
 
 # custom additions
+test_bot/
 test_bot/models/*
 test_bot/cache/*
 test_bot/.rasa/*
 admissions_chatbot/models/*
 admissions_chatbot/cache/*
 admissions_chatbot/.rasa/*
+!admissions_chatbot/models/.gitkeep
