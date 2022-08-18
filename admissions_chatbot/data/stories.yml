@@ -2,16 +2,16 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: enquire about admission
   steps:
-  - intent: greet
+  - intent: greetings
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
 
-- story: sad path 1
+- story: enquire about a course
   steps:
-  - intent: greet
+  - intent: greetings
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
@@ -19,12 +19,142 @@ stories:
   - intent: affirm
   - action: utter_happy
 
-- story: sad path 2
+- story: check the academic calendar
   steps:
-  - intent: greet
+  - intent: greetings
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: check the admission process fee
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: check the admission process duration
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: request for contact details
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: request for university address
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: apply for a course
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: find out about the best course for me
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: how to get a scholarship
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: how to make payments
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: withdraw my application
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: questions about enrolment
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: application process
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: why attend this university
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happen
+
+- story: faculty questions
+  steps:
+  - intent: greetings
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy

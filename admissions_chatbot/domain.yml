@@ -1,38 +1,119 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - greetings:
+      use_entities: []
+  - farewell
+  - accept
+  - decline
+  - ask_course_list
+  - ask_course_details
+  - select_course
+  - ask_entry_requirements
+  - ask_course_fee
+  - ask_payment_question
+  - ask_for_refund
+  - defer_admission
+  - ask_scholarship_question
+  - ask_course_start_date
+  - ask_university_contact
+  - ask_university_address
+  - ask_how_to_apply
+  - ask_deposit_amount
+  - ask_academic_level
+  - ask_postgraduate_type
+  - ask_how_long_feedback
+  - ask_visa_international_students
+  - ask_admission_process_fee
+  - ask_admission_process_duration
+  - ask_faculty
+  - ask_future_prospects
+  - ask_why_university
+  - ask_academic_calendar
+  - out_of_scope
 
 entities:
   - course
   - university
   - faculty
+  - academic_level
+  - student_type
+  - country
+  - postgraduate_type
+
+slots:
+  name:
+    type: text
+    mappings:
+      - type: custom
+    influence_conversation: false
+  course:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course
+    influence_conversation: true
+  academic_level:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: academic_level
+    influence_conversation: true
+  faculty:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: faculty
+    influence_conversation: true
+  university:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: university
+    influence_conversation: true
+  student_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: student_type
+    influence_conversation: true
+  country:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: country
+    influence_conversation: true
+  postgraduate_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: postgraduate_type
+    influence_conversation: true
 
 responses:
-  utter_greet:
+  utter_greetings:
   - text: "Hey! How are you?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
     image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+forms:
+  bot_form:
+    ignored_intents:
+    - greetings
+    - farewell
+    - accept
+    - decline
+    - out_of_scope
+    required_slots:
+        - course
+        - university
+        - faculty
+        - academic_level
+        - student_type
+        - country
+        - postgraduate_type
 
 session_config:
   session_expiration_time: 60
