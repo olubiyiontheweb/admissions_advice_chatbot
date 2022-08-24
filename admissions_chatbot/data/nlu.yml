@@ -8,11 +8,13 @@ nlu:
     - sir
     - hi
     - hi there
-    - hi i am
+    - i am [richard](name)
+    - hi i am [jennifer](name)
+    - hi my name is [ngozi](name)
     - hey
     - hey there
     - hello
-    - hello i am
+    - hello i am [brad](name)
     - dear sir
     - dear ma
     - hello there
@@ -133,9 +135,9 @@ nlu:
     - what are the courses
     - what are the courses available
     - do you have courses related to (course)
-    - do you have (course)
-    - do you have (course) available
-    - which (academic_level) courses are available
+    - do you have [social research](course)
+    - do you have [electrical engineering](course) available
+    - which [undergraduate](academic_level) courses are available
 
 - intent: ask_course_details
   examples: |
@@ -401,3 +403,45 @@ nlu:
     - sum 2 numbers
     - do a multiplication
     - don't be stupid
+
+- lookup: universities
+  examples: |
+    - University of Hull
+    - University of Kent
+    - Middlesex University
+    - Cardiff University
+    - Sheffield Hallam University
+
+- lookup: countries
+  examples: |
+    - United Kingdom
+    - UK
+    - England
+    - Wales
+    - Scotland
+    - Northern Ireland
+    - United States
+    - USA
+    - Canada
+    - California
+    - New York
+
+- lookup: student_types
+  examples: |
+    - International
+    - Local
+    - Home
+    - Foreign
+
+- lookup: academic_levels
+  examples: |
+    - undergraduate
+    - postgraduate
+    - graduate
+
+- lookup: postgraduate_types
+  examples: |
+    - taught
+    - research
+
+#- synonyms: course -> courses

@@ -31,3 +31,31 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import UserUtteranceReverted
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
+from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
+
+class ActionQueryCourses(ActionQueryKnowledgeBase):
+    def __init__(self):
+        # load knowledge base with data from the given file
+        courses_db = InMemoryKnowledgeBase("hull_courses.json")
+
+        # overwrite the representation function of the hotel object
+        # by default the representation function is just the name of the object
+        courses_db.set_representation_function_of_object(
+            "hotel", lambda obj: obj["name"] + " (" + obj["city"] + ")"
+        )
+
+        super().__init__(courses_db)
+        
+class ActionQueryFaculties(ActionQueryKnowledgeBase):
+    def __init__(self):
+        # load the faculty knowledge base with data from the given file
+        faculties_db = InMemoryKnowledgeBase("hull_faculties.json")
+
+        # overwrite the representation function of the hotel object
+        # by default the representation function is just the name of the object
+        faculties_db.set_representation_function_of_object(
+            "hotel", lambda obj: obj["name"] + " (" + obj["city"] + ")"
+        )
+
+        super().__init__(faculties_db)

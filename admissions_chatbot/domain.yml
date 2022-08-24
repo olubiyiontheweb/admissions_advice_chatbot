@@ -90,6 +90,10 @@ slots:
         entity: postgraduate_type
     influence_conversation: true
 
+actions:
+  - action_query_courses
+  - action_query_faculties
+
 responses:
   utter_welcome:
   - text: "Hey! Thanks for contacting us. I am an admissions advice chatbot and I can help you with all your enquiries."

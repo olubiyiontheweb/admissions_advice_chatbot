@@ -98,11 +98,11 @@ for element in divs:
 # Write the scraped course and faculty details to a file.
 
 # Write course information to file
-file = open("hull_courses.py", "w")
+file = open("hull_courses.json", "w")
 file.write(course_list.__str__())
 file.close()
 
 # Write faculty information to file
-file = open("hull_faculties.py", "w")
+file = open("hull_faculties.json", "w")
 file.write(faculties.__str__())
 file.close()
