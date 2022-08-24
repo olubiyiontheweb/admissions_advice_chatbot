@@ -37,6 +37,32 @@ nlu:
     - how are you doing today
     - how are you doing today sir
     - how are you doing today ma
+    - anyone there
+
+- intent: chitchat
+  examples: |
+    - how are you
+    - how are you doing
+    - how are you doing today
+    - how are you feeling
+    - how are you feeling today
+    - how are things
+    - how are things today
+    - are you ok
+    - are you ok today
+    - are you okay
+    - how are things going
+    - how are things with you
+    - how are you doing this morning
+    - how are you doing this afternoon
+    - how are you doing this evening
+    - hope this is meeting you well
+    - i hope this meets you well
+    - hope this is a good day to chat
+    - hope this finds you well
+    - hope this is a good day to chat
+    - can i ask you something
+    - can i ask you some questions
 
 - intent: accept
   examples: |
@@ -51,6 +77,12 @@ nlu:
     - correct
     - perfect
     - great
+    - awesome
+    - yes please
+    - yes sure
+    - yes of course
+    - sure
+    - sure thing
 
 - intent: decline
   examples: |
@@ -61,12 +93,22 @@ nlu:
     - not that
     - not really
     - not really sure
-    - I don't think so
+    - I dont think so
     - don't like that
+    - not sure about that
+    - i dont want that
+    - not sure yet
+    - nil
+    - not sure
+    - are there any other options
+    - are there other options
+    - it doesnt seem like that
 
 - intent: farewell
   examples: |
     - cu
+    - cya
+    - cu later
     - bye
     - bye bye
     - good by
@@ -78,271 +120,284 @@ nlu:
     - have a nice day
     - thanks
     - thanks for your time
+    - thank you
+    - thank you very much
+    - it was nice talking to you
+    - it was nice chatting with you
+    - had a nice chat with you
+    - thanks for your help
+    - thanks for the advice
 
 - intent: ask_course_list
-  - what are the courses
-  - what are the courses available
-  - do you have courses related to (course)
-  - do you have (course)
-  - do you have (course) available
-  - which (academic_level) courses are available
+  examples: |
+    - what are the courses
+    - what are the courses available
+    - do you have courses related to (course)
+    - do you have (course)
+    - do you have (course) available
+    - which (academic_level) courses are available
 
 - intent: ask_course_details
-examples: |
-  - what is it about
-  - what is the course about
-  - what are the course contents
-  - send me the link to the course
-  - what is [chemistry](course) about
-  - i want to know more about [biology](course)
-  - what will i learn if i study [software engineering](course)
+  examples: |
+    - what is it about
+    - what is the course about
+    - what are the course contents
+    - send me the link to the course
+    - what is [chemistry](course) about
+    - i want to know more about [biology](course)
+    - what will i learn if i study [software engineering](course)
 
 - intent: select_course
-examples: |
-  - select [biology](course)
-  - does the university offer [pharmacy](course)
-  - do you have [law](course)
-  - I want to study [biology](course)
+  examples: |
+    - select [biology](course)
+    - does the university offer [pharmacy](course)
+    - do you have [law](course)
+    - I want to study [biology](course)
 
 - intent: ask_entry_requirements
-examples: |
-  - what are the entry requirements
-  - what are the entry requirements for (course)
-  - what are the entry requirements for this course
-  - what do i need to be admitted to study [advanced computer science](course)
-  - what are the requirements for [software engineering](course)
+  examples: |
+    - what are the entry requirements
+    - what are the entry requirements for (course)
+    - what are the entry requirements for this course
+    - what do i need to be admitted to study [advanced computer science](course)
+    - what are the requirements for [software engineering](course)
 
 - intent: ask_course_fee
-examples: |
-  - what is the tuition fee
-  - what is the course fee
-  - what is the course fee for [international](student_type) students
-  - how much is the course fee for [international](student_type) students
-  - what is the course fee for [home](student_type) students
-  - how much is the course fee for [home](student_type) students
-  - how much does it cost to enroll in (course)
-  - what is the course fee for (course)
-  - How much does it cost?
-  - how much is the tuition fee for (course)
-  - how much is the tuition fee for (course) for [international](student_type) students
-  - How much does it cost to study (course)
+  examples: |
+    - what is the tuition fee
+    - what is the course fee
+    - what is the course fee for [international](student_type) students
+    - how much is the course fee for [international](student_type) students
+    - what is the course fee for [home](student_type) students
+    - how much is the course fee for [home](student_type) students
+    - how much does it cost to enroll in (course)
+    - what is the course fee for (course)
+    - How much does it cost?
+    - how much is the tuition fee for (course)
+    - how much is the tuition fee for (course) for [international](student_type) students
+    - How much does it cost to study (course)
 
 - intent: ask_payment_question
-examples: |
-  - how do i pay
-  - When do I pay?
-  - i want a refund
-  - can I get a refund?
-  - how do I pay tuition
-  - how do I make a payment
-  - how do I make my tuition deposit
-  - when should I make my tuition deposit
-  - I'm a sponsored student - what do I need to do?
-  - what do I need to do as a sponsored student?
+  examples: |
+    - how do i pay
+    - When do I pay?
+    - i want a refund
+    - can I get a refund?
+    - how do I pay tuition
+    - how do I make a payment
+    - how do I make my tuition deposit
+    - when should I make my tuition deposit
+    - I'm a sponsored student - what do I need to do?
+    - what do I need to do as a sponsored student?
 
 - intent: ask_for_refund
-examples: |
-  - I've decided to withdraw from my course - can I get a refund?
-  - what do I need to do to get a refund?
-  - how can i get a refund?
-  - how can i process my refund?
-  - how do i apply for a refund?
+  examples: |
+    - I've decided to withdraw from my course - can I get a refund?
+    - what do I need to do to get a refund?
+    - how can i get a refund?
+    - how can i process my refund?
+    - how do i apply for a refund?
 
 - intent: defer_admission
-examples: |
-  - I'm not interested in this course - defer my application
-  - I'm not interested in this course - defer my application for [microbiology](course)
-  - I want to defer my application for [chemistry](course)
-  - I want to defer my application
-  - i want to defer my admission for this year
-  - how do i defer my admission
-  - how do i defer my admission for [software engineering](course)
-  - how do i defer my admission for this course
-  - can i defer my admission until next year
-  - can i defer my admission for [computer engineering](course) until next year
-  - i like to postpone my admission for [Business Management](course)
-  - im unable to meet the requirements for [social research](course)
-  - im unable to meet the requirements for this [social research]course
-  - defer my admission for [Business Management](course)
-  - defer my admission
-  - postpone my application
+  examples: |
+    - I'm not interested in this course - defer my application
+    - I'm not interested in this course - defer my application for [microbiology](course)
+    - I want to defer my application for [chemistry](course)
+    - I want to defer my application
+    - i want to defer my admission for this year
+    - how do i defer my admission
+    - how do i defer my admission for [software engineering](course)
+    - how do i defer my admission for this course
+    - can i defer my admission until next year
+    - can i defer my admission for [computer engineering](course) until next year
+    - i like to postpone my admission for [Business Management](course)
+    - im unable to meet the requirements for [social research](course)
+    - im unable to meet the requirements for this [social research]course
+    - defer my admission for [Business Management](course)
+    - defer my admission
+    - postpone my application
 
 - intent: ask_scholarship_question
-examples: |
-  - do I get a scholarship
-  - can I get a scholarship
-  - is any funding available
-  - do I need to pay any tuition fees
-  - how do I get a scholarship
-  - where do I get a scholarship
-  - how do I apply for a scholarship
-  - how can I get financial help
-  - how can I get financial support
-  - I need some financial help
-  - I need some financial support
+  examples: |
+    - do I get a scholarship
+    - can I get a scholarship
+    - is any funding available
+    - do I need to pay any tuition fees
+    - how do I get a scholarship
+    - where do I get a scholarship
+    - how do I apply for a scholarship
+    - how can I get financial help
+    - how can I get financial support
+    - I need some financial help
+    - I need some financial support
 
 - intent: ask_course_start_date
-examples: |
-  - when is the course starting
-  - what is the course starting date
-  - when does it start
-  - when does the course start
-  - on what date does the course start
-  - what is the next starting date for the course
+  examples: |
+    - when is the course starting
+    - what is the course starting date
+    - when does it start
+    - when does the course start
+    - on what date does the course start
+    - what is the next starting date for the course
 
 - intent: ask_university_contact
-examples: |
-  - what is your email address
-  - how do I contact the 
-  - what is your contact number
-  - how can I contact you
-  - I have more questions
-  - how can I reach you
-  - do you have an email address
-  - do you have a phone number
+  examples: |
+    - what is your email address
+    - how do I contact the 
+    - what is your contact number
+    - how can I contact you
+    - I have more questions
+    - how can I reach you
+    - do you have an email address
+    - do you have a phone number
 
 - intent: ask_university_address
-examples: |
-  - where are you located
-  - what is your address
-  - how can I locate you
-  - where is your location
-  - where is your university located
-  - how can I locate the university
-  - how can I locate the [university of california](university)
-  - where is the [middlesex university](university) located
-  - where is the [london school of music](university) located
+  examples: |
+    - where are you located
+    - what is your address
+    - how can I locate you
+    - where is your location
+    - where is your university located
+    - how can I locate the university
+    - how can I locate the [university of california](university)
+    - where is the [middlesex university](university) located
+    - where is the [london school of music](university) located
 
 - intent: ask_how_to_apply
-examples: |
-  - how do I apply
-  - how can I apply
-  - where do I apply
-  - where do I apply for the course
-  - how do I apply for (course)
-  - how do I apply for [Computer Science](course) at [university of hull](university)
+  examples: |
+    - how do I apply
+    - how can I apply
+    - where do I apply
+    - where do I apply for the course
+    - how do I apply for (course)
+    - how do I apply for [Computer Science](course) at [university of hull](university)
 
 - intent: ask_deposit_amount
-examples: |
-  - what is the deposit amount
-  - how much depost is required
-  - how much is the deposit
-  - how much deposit do I need to pay
-  - how much do I need to pay before I can start the course
-  - how much do I need to pay to get an unconditional offer
-  - how much payment do I need to make before I can start the course
-  - how much do I need to pay after receiving my conditional offer
+  examples: |
+    - what is the deposit amount
+    - how much depost is required
+    - how much is the deposit
+    - how much deposit do I need to pay
+    - how much do I need to pay before I can start the course
+    - how much do I need to pay to get an unconditional offer
+    - how much payment do I need to make before I can start the course
+    - how much do I need to pay after receiving my conditional offer
 
 - intent: ask_academic_level
-examples: |
-  - what is the academic level
-  - i want a [postgraduate](academic_level) course
-  - i want a [undergraduate](academic_level) course at [Middlesex University](university)
-  - show me a [postgraduate](academic_level) course
-  - I'm looking for a [postgraduate](academic_level) course
-  - which [postgraduate](academic_level) course  I take
+  examples: |
+    - what is the academic level
+    - i want a [postgraduate](academic_level) course
+    - i want a [undergraduate](academic_level) course at [Middlesex University](university)
+    - show me a [postgraduate](academic_level) course
+    - I'm looking for a [postgraduate](academic_level) course
+    - which [postgraduate](academic_level) course  I take
 
 - intent: ask_postgraduate_type
-examples: |
-  - is this a [taught](postgraduate_type) postgraduate course
-  - is this a [research](postgraduate_type) postgraduate course
-  - what [taught](postgraduate_type) course is this
+  examples: |
+    - is this a [taught](postgraduate_type) postgraduate course
+    - is this a [research](postgraduate_type) postgraduate course
+    - what [taught](postgraduate_type) course is this
 
 - intent: ask_how_long_feedback
-examples: |
-  - how long is the feedback period
-  - when should i expect the feedback
-  - when should I expect a feedback
-  - when should I expect a response for the application
-  - when should I expect a response for my application for [computer science](course)
-  - How long does it take to get a response from the university
+  examples: |
+    - how long is the feedback period
+    - when should i expect the feedback
+    - when should I expect a feedback
+    - when should I expect a response for the application
+    - when should I expect a response for my application for [computer science](course)
+    - How long does it take to get a response from the university
 
 - intent: ask_visa_international_students
-examples: |
-  - do you accept international students
-  - do you accept international students for [information technology](course)
-  - how do I apply for my visa
-  - what is the visa application process
-  - what do I need to do to apply for a visa
-  - do I need a sponsorship visa from your university
+  examples: |
+    - do you accept international students
+    - do you accept international students for [information technology](course)
+    - how do I apply for my visa
+    - what is the visa application process
+    - what do I need to do to apply for a visa
+    - do I need a sponsorship visa from your university
 
 - intent: ask_admission_process_fee
-examples: |
-  - do you have an application fee
-  - does the university charge a fee for admission
-  - do you charge a fee for admission
-  - do you charge a fee for admission for [business management](course)
-  - what is the application fee for [information technology](course)
-  - do you charge an application fee
+  examples: |
+    - do you have an application fee
+    - does the university charge a fee for admission
+    - do you charge a fee for admission
+    - do you charge a fee for admission for [business management](course)
+    - what is the application fee for [information technology](course)
+    - do you charge an application fee
 
 - intent: ask_admission_process_duration
-examples: |
-  - how long is the admission process
-  - how long does the admission process last
-  - how long is the admission process for [fine arts](course)
+  examples: |
+    - how long is the admission process
+    - how long does the admission process last
+    - how long is the admission process for [fine arts](course)
 
 - intent: ask_faculty
-examples: |
-  - what is the faculty
-  - what is the faculty of [software development](course)
-  - what is the faculty of [computer engineering](course) at [middlesex university](university)
-  - what faculty is [forensic science](course) in
-  - what faculty is [criminology](course) at [university of hull](university) in
-  - how many faculties are there
-  - what faculties are available
-  - how many faculties are there at [university of hull](university)
-  - how many faculties are available at [university of kent](university)
-  - list of courses offered by [school of arts](faculty)
-  - list of courses offered by the [faculty of science](faculty)
-  - list of courses offered by the [School of Natural Sciences](faculty)
-  - show me courses in [school of natural sciences and technology](faculty)
+  examples: |
+    - what is the faculty
+    - what is the faculty of [software development](course)
+    - what is the faculty of [computer engineering](course) at [middlesex university](university)
+    - what faculty is [forensic science](course) in
+    - what faculty is [criminology](course) at [university of hull](university) in
+    - how many faculties are there
+    - what faculties are available
+    - how many faculties are there at [university of hull](university)
+    - how many faculties are available at [university of kent](university)
+    - list of courses offered by [school of arts](faculty)
+    - list of courses offered by the [faculty of science](faculty)
+    - list of courses offered by the [School of Natural Sciences](faculty)
+    - show me courses in [school of natural sciences and technology](faculty)
 
 - intent: ask_future_prospects
-examples: |
-  - what are the future prospects of [social science](course)
-  - what kind of career opportunities are there for [social science](course)
-  - career prospects for [computer engineering](course)
-  - career routes for [business management](course)
-  - which careers does [psychology](course) offer
-  - which careers does this [physics](course) prepare me for
-  - which careers are available for [social research](course)
+  examples: |
+    - what are the future prospects of [social science](course)
+    - what kind of career opportunities are there for [social science](course)
+    - career prospects for [computer engineering](course)
+    - career routes for [business management](course)
+    - which careers does [psychology](course) offer
+    - which careers does this [physics](course) prepare me for
+    - which careers are available for [social research](course)
 
 - intent: ask_why_university
-examples: |
-  - why should I choose [university of hull](university)
-  - why should I apply to the [university of hull](university)
-  - why should I apply to [university of hull](university)
-  - what is the reason for choosing [university of hull](university)
-  - why do people choose [university of hull](university)
-  - why do students attend the [university of hull](university)
-  - why do students choose [university of hull](university)
-  - is the [university of hull](university) the best university in the world
-  - is the [university of hull](university) the best university in the world for (course)
-  - is the [university of hull](university) good for (course)
-  - is the [university of hull](university) good for me
-  - what is the ranking of [leeds beckett university](university)
-  - what is the ranking of [oxford university](university) in the [uk](country)
+  examples: |
+    - why should I choose [university of hull](university)
+    - why should I apply to the [university of hull](university)
+    - why should I apply to [university of hull](university)
+    - what is the reason for choosing [university of hull](university)
+    - why do people choose [university of hull](university)
+    - why do students attend the [university of hull](university)
+    - why do students choose [university of hull](university)
+    - is the [university of hull](university) the best university in the world
+    - is the [university of hull](university) the best university in the world for (course)
+    - is the [university of hull](university) good for (course)
+    - is the [university of hull](university) good for me
+    - what is the ranking of [leeds beckett university](university)
+    - what is the ranking of [oxford university](university) in the [uk](country)
 
 - intent: ask_academic_calendar
-examples: |
-  - can I see the academic calendar
-  - can I see the academic calendar for this year
-  - do you have the key dates for this year
-  - what are the important dates I should know about
-  - send me the link to the academic calendar
-  - where can I find the academic calendar
-  - where can I find the academic calendar for this year
+  examples: |
+    - can I see the academic calendar
+    - can I see the academic calendar for this year
+    - do you have the key dates for this year
+    - what are the important dates I should know about
+    - send me the link to the academic calendar
+    - where can I find the academic calendar
+    - where can I find the academic calendar for this year
 
-- intent: out_of_scope
-examples: |
-  - blablablablalblab
-  - asdasdasdasd
-  - hmm
-  - hmmmmmm
-  - hahahha
-  - whats the weather update
-  - im sleeping
-  - my budget
-  - my budget is
-  - ..
-  - what else can you do
+- intent: unhandled_intent
+  examples: |
+    - blablablablalblab
+    - asdasdasdasd
+    - hmm
+    - hmmmmmm
+    - hahahha
+    - -=whats the weather update
+    - im sleeping
+    - my budget
+    - my budget is
+    - ..
+    - what else can you do
+    - what is the weather
+    - today is a good day
+    - sum 2 numbers
+    - do a multiplication
+    - don't be stupid

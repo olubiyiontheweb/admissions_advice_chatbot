@@ -30,7 +30,7 @@ intents:
   - ask_future_prospects
   - ask_why_university
   - ask_academic_calendar
-  - out_of_scope
+  - unhandled_intent
 
 entities:
   - course
@@ -91,12 +91,25 @@ slots:
     influence_conversation: true
 
 responses:
-  utter_greetings:
-  - text: "Hey! How are you?"
+  utter_welcome:
+  - text: "Hey! Thanks for contacting us. I am an admissions advice chatbot and I can help you with all your enquiries."
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_askcourse_list:
+  - text: "Here is a list of courses available at the University of Manchester:"
+
+  utter_farewell:
+  - text: "Thanks for your interest in the {university}:"
+    image: "https://media.giphy.com/media/BYoRqTmcgzHcL9TCy1/giphy.gif"
+
+  utter_unhandled_scope:
+  - text: "Sorry, I don't understand that. Can you ask me something else?"  
+
+  utter_ask_rephrase:
+  - text: "I'm not sure I understand what you mean, can you please rephrase?"
+    image: "https://media.giphy.com/media/gKsJUddjnpPG0/giphy.gif"
+
+  utter_default:
+  - text: "I'm sorry, I can't help with that."
 
 forms:
   bot_form:

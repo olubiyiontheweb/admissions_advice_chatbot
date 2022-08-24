@@ -2,12 +2,23 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: welcome user
+  conversation_start: true 
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+    - intent: greetings
+    - action: utter_welcome
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: bid them farewell
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: farewell
+  - action: utter_farewell
+  
+- rule: respond unhandled intents
+  steps:
+  - intent: unhandled_intent
+  - action: utter_unhandled_scope
+  
+- rule: rephrase when a message has a low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_ask_rephrase

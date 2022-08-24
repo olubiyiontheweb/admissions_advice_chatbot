@@ -13,20 +13,24 @@ An interactive chatbot that utilises published information from a university's w
 
 > python -m venv venv
 
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser (skip except you're running on windows)
+
 > venv\scripts\activate
 
 > pip install -r requirements.txt
 
-> rasa train nlu
+> python ./web_scraping_tool/scraping_operations.py
+
+> cd admissions_chatbot
+
+> rasa train nlu --> rasa shell nlu (skip this line, you only need this if you plan to debug on the terminal)
 
 > rasa train
 
-> rasa telemetry disable
+> rasa telemetry disable (disable reporting anonymous usage)
 
-> rasa shell nlu
-
-> rasa run --enable-api --cors *
+> rasa run -m models --enable-api --cors * (run this on another terminal)
 
 > rasa run actions (run this on another terminal)
 
-> python -m http.server --directory http_webserver
+> python -m http.server --directory ./http_webserver/ (run this on another terminal)
