@@ -403,9 +403,11 @@ nlu:
     - sum 2 numbers
     - do a multiplication
     - don't be stupid
+    - i cant deal with this
 
 - lookup: universities
   examples: |
+    - Hull University
     - University of Hull
     - University of Kent
     - Middlesex University
@@ -419,12 +421,8 @@ nlu:
     - England
     - Wales
     - Scotland
+    - Great Britain
     - Northern Ireland
-    - United States
-    - USA
-    - Canada
-    - California
-    - New York
 
 - lookup: student_types
   examples: |

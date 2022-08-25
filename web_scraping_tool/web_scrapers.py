@@ -80,3 +80,17 @@ def web_scraper_all_from_content_class(content: BeautifulSoup, element: str, cla
     Scrape the web page for the specified element and classname.
     """    
     return content.find_all(element, class_=class_name)
+
+def map_fac_to_course(course_list: list, course_urls: list, f_name: str, f_url: str):
+    """
+    Map faculty to their courses.
+    """
+    for course in course_list:
+        if course["url"] in course_urls:
+            course["faculty"] = f_name
+            course["faculty_url"] = f_url
+        else:
+            course["faculty"] = ""
+            course["faculty_url"] = ""
+        
+    return course_list

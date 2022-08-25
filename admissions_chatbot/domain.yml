@@ -91,8 +91,7 @@ slots:
     influence_conversation: true
 
 actions:
-  - action_query_courses
-  - action_query_faculties
+  - action_query_knowledge_base
 
 responses:
   utter_welcome:
@@ -106,7 +105,7 @@ responses:
     image: "https://media.giphy.com/media/BYoRqTmcgzHcL9TCy1/giphy.gif"
 
   utter_unhandled_scope:
-  - text: "Sorry, I don't understand that. Can you ask me something else?"  
+  - text: "Sorry, I'm not sure I understand that. Can you ask me something else?"  
 
   utter_ask_rephrase:
   - text: "I'm not sure I understand what you mean, can you please rephrase?"

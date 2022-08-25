@@ -19,9 +19,9 @@ An interactive chatbot that utilises published information from a university's w
 
 > pip install -r requirements.txt
 
-> python ./web_scraping_tool/scraping_operations.py
-
 > cd admissions_chatbot
+
+> python ../web_scraping_tool/scraping_operations.py
 
 > rasa train nlu --> rasa shell nlu (skip this line, you only need this if you plan to debug on the terminal)
 
