@@ -37,12 +37,12 @@ from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 class ActionQueryDB(ActionQueryKnowledgeBase):
     def __init__(self):
         # load knowledge base with data from the given file
-        courses_db = InMemoryKnowledgeBase("hull_courses.json")
+        courses_db = InMemoryKnowledgeBase("hull_courses_faculties.json")
 
         # overwrite the representation function of the hotel object
         # by default the representation function is just the name of the object
         courses_db.set_representation_function_of_object(
-            "hotel", lambda obj: obj["name"] + " (" + obj["city"] + ")"
+            "course", lambda obj: obj["name"] + " (" + obj["city"] + ")"
         )
 
         super().__init__(courses_db)

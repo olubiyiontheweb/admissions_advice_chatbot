@@ -384,6 +384,7 @@ nlu:
     - send me the link to the academic calendar
     - where can I find the academic calendar
     - where can I find the academic calendar for this year
+    - what is the academic schedule for the year
 
 - intent: unhandled_intent
   examples: |
