@@ -4,6 +4,7 @@ intents:
   - greetings:
       use_entities: []
   - farewell
+  - chitchat
   - accept
   - decline
   - ask_payment_question
@@ -31,11 +32,17 @@ intents:
   - select_course
   - ask_entry_requirements
   - ask_course_fee
+  - ask_student_type
 
 entities:
   - course
+  - course_url
+  - course_fee
+  - course_duration
+  - course_intake
   - university
   - faculty
+  - faculty_url
   - academic_level
   - student_type
   - country
@@ -89,43 +96,68 @@ slots:
       - type: from_entity
         entity: postgraduate_type
     influence_conversation: true
+  course_fee:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course_fee
+    influence_conversation: true
+  course_url:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course_url
+    influence_conversation: false
+  course_intake:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course_intake
+    influence_conversation: true
+  faculty_url:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: faculty_url
+    influence_conversation: false
 
 actions:
   - action_query_knowledge_base
 
 responses:
   utter_welcome:
-  - text: "Welcome to the admissions chatbot. I can help you with the following questions:"
-  - text: "1. Enquire about admission"
-  - text: "2. Enquire about a course"
-  - text: "3. Check the academic calendar"
-  - text: "4. Check the admission process fee"
-  - text: "5. Check the admission process duration"
-  - text: "6. Request for contact details"
-  - text: "7. Request for university address"
-  - text: "8. How to apply for a course"
-  - text: "9. Check the entry requirements"
-  - text: "10. Check the course fee"
-  - text: "11. Check the payment question"
-  - text: "12. Check for refund"
-  - text: "13. Defer admission"
-  - text: "14. Check the scholarship question"
+  - text: "Welcome to the admissions chatbot. I can help you with the following questions: \n
+          - 1. Enquire about admission\n
+          - 1. Enquire about admission\n
+          - 2. Enquire about a course\n
+          - 3. Check the academic calendar\n
+          - 4. Check the admission process fee\n
+          - 5. Check the admission process duration\n
+          - 6. Request for contact details\n
+          - 7. Request for university address\n
+          - 8. How to apply for a course\n
+          - 9. Check the entry requirements\n
+          - 10. Check the course fee\n
+          - 11. Check the payment question\n
+          - 12. Check for refund\n
+          - 13. Defer admission\n
+          - 14. Check the scholarship question"
   - text: "Hey {name}! Thanks for contacting us. I am an admissions advice chatbot and I can help you with all your enquiries."
 
   utter_askcourse_list:
-  - text: "Here is a list of courses available at the University of Hull:"
-  -  text: "https://www.hull.ac.uk/search/courses?level=postgraduate+research"
+  - text: "Here is a list of courses available at the University of Hull:\n
+        - {course_url}"
 
   utter_askcontact_details:
-  - text: "Hi {name}, you can reach the university on any of the following channels:"
-  - text: "1. Email: global@hull.ac.uk, hefunding@hull.ac.uk"
-  - text: "2. Telephone: +44 (0)1482 346311, +44 (0)1482 463002, +44 (0)1482 462190"
-  - text: "3. Social media: https://www.facebook.com/UniversityOfHull, https://twitter.com/UniOfHull, https://www.youtube.com/user/marcomshull"
-  - text: "4. Website: https://www.hull.ac.uk"
+  - text: "Hi {name}, you can reach the university on any of the following channels:\n
+    - 1. Email: global@hull.ac.uk, hefunding@hull.ac.uk\n
+    - 2. Telephone: +44 (0)1482 343611, +44 (0)1482 463002, +44 (0)1482 462190\n
+    - 3. Social media: https://www.facebook.com/UniversityOfHull, https://twitter.com/UniOfHull, https://www.youtube.com/user/marcomshull\n
+    - 4. Website: https://www.hull.ac.uk"
 
   utter_askuniversity_address:
-  - text: "The University of Hull is located in the heart of the city of Hull, in the North West of England."
-  - text: "Cottingham Rd, Hull HU6 7RX, University of Hull, UK"
+  - text: "The University of Hull is located in the heart of the city of Hull, in the North West of England.\n
+        - Cottingham Rd, Hull HU6 7RX, University of Hull, UK"
 
   utter_askaddmission_process_fee:
   - text: "The University of Hull is a private university, but the application fee is free."
@@ -134,73 +166,116 @@ responses:
   - text: "You can apply at any time, but we recommend that you apply by 1 August for September course start (or at least 6 weeks before any other start date). This is important in particular if you need Tier 4 visa to study in the UK as you need to allow enough time to complete your visa application process. This usually takes 3-4 weeks."
 
   utter_askdefer_admission:
-  - text: "If you would like to defer the start of your course, you need to email pgadmissions@hull.ac.uk. The Postgraduate Admissions team will then contact the academic department for approval.
-    Deferrals are normally only allowed if requested up to six weeks after the initial start date. After this, you may need to apply again."
+  - text: "If you would like to defer the start of your course, you need to email pgadmissions@hull.ac.uk. The Postgraduate Admissions team will then contact the academic department for approval.\n
+        - Deferrals are normally only allowed if requested up to six weeks after the initial start date. After this, you may need to apply again."
 
   utter_askhow_to_apply_undergraduate:
-  - text: "For the majority of our undergraduate courses, you’ll need to apply through UCAS. As well as providing your personal details, academic qualifications and any employment history – it’s a great way to showcase your skills, qualities and passion for the subject you’re wanting to study."
-  - text: "visit the link below for more information on how to apply for a course:"
-  -  text: "https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/undergraduate/how-to-apply"
+  - text: "For the majority of our undergraduate courses, you’ll need to apply through UCAS. As well as providing your personal details, academic qualifications and any employment history – it’s a great way to showcase your skills, qualities and passion for the subject you’re wanting to study.\n
+    - visit the link below for more information on how to apply for a course:\n
+    - https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/undergraduate/how-to-apply"
 
   utter_askhow_to_apply_postgraduate:
-  - text: "For most of our courses, applying online is the quickest and easiest way to apply."
-  - text: "And it usually takes five to 10 minutes to complete the application, visit the link below for more information on how to apply for a course:"
-  -  text: "https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/postgraduate/how-to-apply"
+  - text: "For most of our courses, applying online is the quickest and easiest way to apply.\n
+        - And it usually takes five to 10 minutes to complete the application, visit the link below for more information on how to apply for a course:\n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/postgraduate/how-to-apply"
 
   utter_askhow_long_feedback:
   - text: "It usually takes between 1-6 weeks for your application to be reviewed."
 
   utter_askacademic_calendar:
-  - text: "Please visit for the academic calendar for the current academic year."
-  -  text: "https://www.hull.ac.uk/choose-hull/study-at-hull/need-to-know/key-dates"
+  - text: "Please visit for the academic calendar for the current academic year.\n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/need-to-know/key-dates"
 
   utter_askdeposit_amount:
-  - text: "You will need to pay a deposit of £2,000 against the tuition fee to confirm your admission."
-  - text: "Especially for those who need a Student Visa to study, as your Student Visa CAS will only be issued once the deposit has been received in full."
-  - text: "Visit the link below for more information on how to pay the deposit:"
-  -  text: "https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/tuition-fee-deposit"
+  - text: "You will need to pay a deposit of £2,000 against the tuition fee to confirm your admission.\n
+        - Especially for those who need a Student Visa to study, as your Student Visa CAS will only be issued once the deposit has been received in full.\n
+        - Visit the link below for more information on how to pay the deposit:\n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/tuition-fee-deposit"
 
   utter_askhow_to_pay_undergraduate:
-  - text: "You can pay your tuition fee online or by bank transfer. Visit the link below for more information on how to pay your tuition fee:"
-  -  text: "https://www.hull.ac.uk/choose-hull/study-at-hull/money/undergraduate-fees"
+  - text: "You can pay your tuition fee online or by bank transfer. Visit the link below for more information on how to pay your tuition fee:\n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/money/undergraduate-fees"
   
   utter_askhow_to_pay_postgraduate:
-  - text: "You can pay your tuition fee online or by bank transfer. Visit the link below for more information on how to pay your tuition fee:"
-  -  text: "https://www.hull.ac.uk/choose-hull/study-at-hull/money/postgraduate-fees"
+  - text: "You can pay your tuition fee online or by bank transfer. Visit the link below for more information on how to pay your tuition fee:\n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/money/postgraduate-fees"
 
   utter_askwhy_university_undergraduate:
-  - text: "There's no place like Hull From our beautiful campus to our friendly lecturers, there are loads of reasons to choose Hull. And with brilliant bars and restaurants, huge festivals and so much more, you'll fall in love with our city, too."
-  -  text: "https://www.hull.ac.uk/study/undergraduate"
+  - text: "There's no place like Hull From our beautiful campus to our friendly lecturers, there are loads of reasons to choose Hull. And with brilliant bars and restaurants, huge festivals and so much more, you'll fall in love with our city, too.\n
+        - https://www.hull.ac.uk/study/undergraduate"
 
   utter_askwhy_university_postgraduate:
-  - text: "There's no place like Hull From our beautiful campus to our friendly lecturers, there are loads of reasons to choose Hull. And with brilliant bars and restaurants, huge festivals and so much more, you'll fall in love with our city, too."
-  -  text: https://www.hull.ac.uk/choose-hull/student-life"
+  - text: "There's no place like Hull From our beautiful campus to our friendly lecturers, there are loads of reasons to choose Hull. And with brilliant bars and restaurants, huge festivals and so much more, you'll fall in love with our city, too.\n
+        - https://www.hull.ac.uk/choose-hull/student-life"
 
   utter_askrefund:
-  - text: "Request for refund (less administration fee) will be considered where there are exceptional circumstances beyond an applicant's control"
-  - text: "Please visit the link below for more information on how to request for a refund:"
-  -  text: "https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/tuition-fee-deposit#S14_ExpandHead"
+  - text: "Request for refund (less administration fee) will be considered where there are exceptional circumstances beyond an applicant's control\n
+        - Please visit the link below for more information on how to request for a refund:\n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/admissions/tuition-fee-deposit#S14_ExpandHead"
 
   utter_ask_international_students:
-  - text: "We have always welcomed students and staff from around the world and international connectivity is important to everyone at the University of Hull. Our research is of global impact."
-  - text: Please visit the link below for more information"
-  -  text: "https://www.hull.ac.uk/international"
+  - text: "We have always welcomed students and staff from around the world and international connectivity is important to everyone at the University of Hull. Our research is of global impact.\n
+        - Please visit the link below for more information\n
+        - https://www.hull.ac.uk/international"
 
   utter_ask_international_students_visa:
-  - text: "We know that applying for a visa can be confusing, which is why we can offer dedicated immigration advice within the International Engagement & Compliance Team to help make the process as easy as possible."
-  - text: "https://www.hull.ac.uk/international/visas-and-immigration"
+  - text: "We know that applying for a visa can be confusing, which is why we can offer dedicated immigration advice within the International Engagement & Compliance Team to help make the process as easy as possible.\n
+        - https://www.hull.ac.uk/international/visas-and-immigration"
 
   utter_askscholarship:
-  - text: "Please visit the link below for scholarship opportunities"
-  - text: "https://www.hull.ac.uk/choose-hull/study-at-hull/money/scholarships-and-awards"
+  - text: "Please visit the link below for scholarship opportunities\n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/money/scholarships-and-awards"
 
   utter_ask_scholarship_phd:
-  - text: "Please visit the link below for scholarship opportunities"
-  -  text: "https://www.hull.ac.uk/study/postgraduate/research/phd/phd-scholarships"
+  - text: "Please visit the link below for scholarship opportunities\n
+        - https://www.hull.ac.uk/study/postgraduate/research/phd/phd-scholarships"
 
   utter_farewell:
   - text: "Thanks for your interest in the {university}:"
     image: "https://media.giphy.com/media/BYoRqTmcgzHcL9TCy1/giphy.gif"
+
+  utter_ask_faculty:
+  - text: "Please visit the link for the list of faculties available at the {university}:\n
+        - https://www.hull.ac.uk/faculties"
+  - text: "The course {course} is taught by {faculty}."
+  - text: "please visit {faculty_url} for available courses in {faculty}."
+
+  utter_ask_future_prospects:
+  - text: "The courses we offer prepare students for their careers.\n
+        - Please visit the link below for details on possible careers you can pursue when you study at the {university}:\n
+        - {course_url}#future"
+
+  utter_ask_entry_requirements:
+  - text: "Please visit the link below for entry requirements for the {course}:\n
+        - {course_url}#entry"
+
+  utter_ask_academic_level:
+  - text: "The academic level for the {course} is {academic_level}."
+
+  utter_ask_course_length:
+  - text: "Please visit the link below for the duration of the {course}\n
+        - {course_url}"
+
+  utter_ask_course_fee:
+  - text: "The tuition fee for the {course} is {course_fee}."
+
+  utter_select_course:
+  - text: "The course {course} has been selected for you. do you want to know more about the course?"
+
+  utter_ask_course_start_date:
+  - text: "The next start date or intake for this course is {course_start_date}.\n
+        - Visit the link below for the academic calender for this year \n
+        - https://www.hull.ac.uk/choose-hull/study-at-hull/need-to-know/key-dates"
+
+  utter_ask_course_details:
+  - text: " The course {course} is taught by {faculty}.\n
+        - The course is {academic_level}, and the tuition fee is {course_fee}.\n
+        - The next intake would be on {course_intake}
+        - To learn more about the course, please visit the link below:\n
+        - {course_url}#about"
+
+  utter_ask_postgraduate_type:
+  - text: "The course {course} is {postgraduate_type}."
 
   utter_unhandled_scope:
   - text: "Sorry, I'm not sure I understand that. Can you ask me something else?"  

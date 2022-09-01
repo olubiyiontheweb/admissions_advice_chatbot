@@ -10,6 +10,7 @@ nlu:
     - hi there
     - i am [richard](name)
     - hi i am [jennifer](name)
+    - [tosin](name)
     - hi my name is [ngozi](name)
     - hey
     - hey there
@@ -134,13 +135,14 @@ nlu:
   examples: |
     - what are the courses
     - what are the courses available
-    - do you have courses related to (course)
+    - do you have courses related to [computer science](course)
     - do you have [social research](course)
     - do you have [electrical engineering](course) available
-    - which [undergraduate](academic_level) courses are available
+    - which [undergraduate]{"entity": "academic_level", "value": "undergraduate"} courses are available
 
 - intent: ask_course_details
   examples: |
+    - all courses
     - what is it about
     - what is the course about
     - what are the course contents
@@ -155,29 +157,44 @@ nlu:
     - does the university offer [pharmacy](course)
     - do you have [law](course)
     - I want to study [biology](course)
+    - [software engineering](course)
 
 - intent: ask_entry_requirements
   examples: |
     - what are the entry requirements
-    - what are the entry requirements for (course)
+    - what are the entry requirements for [english language](course)
     - what are the entry requirements for this course
     - what do i need to be admitted to study [advanced computer science](course)
     - what are the requirements for [software engineering](course)
+
+- intent: ask_student_type
+  examples: |
+    - i am an [international]{"entity": "student_type", "value": "international"} student
+    - i am a [domestic]{"entity": "student_type", "value": "home"} student
+    - i am a [home]{"entity": "student_type", "value": "home"} student
+    - im a [british]{"entity": "student_type", "value": "home"} student
+    - im an [international]{"entity": "student_type", "value": "international"} student
+    - im an [european]{"entity": "student_type", "value": "international"} student
+    - im from the [american]{"entity": "student_type", "value": "international"} union
+    - im an [african]{"entity": "student_type", "value": "international"} student
+    - [home]{"entity": "student_type", "value": "home"} student
+    - [foreign]{"entity": "student_type", "value": "international"} student  
 
 - intent: ask_course_fee
   examples: |
     - what is the tuition fee
     - what is the course fee
-    - what is the course fee for [international](student_type) students
-    - how much is the course fee for [international](student_type) students
-    - what is the course fee for [home](student_type) students
-    - how much is the course fee for [home](student_type) students
-    - how much does it cost to enroll in (course)
-    - what is the course fee for (course)
+    - what is the course fee for [international]{"entity": "student_type", "value": "international"} students
+    - how much is the course fee for [international]{"entity": "student_type", "value": "international"} students
+    - what is the course fee for {"entity": "student_type", "value": "home"} students
+    - how much is the course fee for {"entity": "student_type", "value": "home"} students
+    - how much does it cost to enroll in your [physics](course) course
+    - what is the course fee for [chemistry](course)
+    - fee for [research](course)
     - How much does it cost?
-    - how much is the tuition fee for (course)
-    - how much is the tuition fee for (course) for [international](student_type) students
-    - How much does it cost to study (course)
+    - how much is the tuition fee for [social studies](course)
+    - how much is the tuition fee for [information technology](course) for [international]{"entity": "student_type", "value": "international"} students
+    - How much does it cost to study [engineering](course)
 
 - intent: ask_payment_question
   examples: |
@@ -261,9 +278,9 @@ nlu:
     - where is your location
     - where is your university located
     - how can I locate the university
-    - how can I locate the [university of california](university)
-    - where is the [middlesex university](university) located
-    - where is the [london school of music](university) located
+    - how can I locate the [university of california]{"entity": "university", "value": "university"}
+    - where is the [middlesex university]{"entity": "university", "value": "university"} located
+    - where is the [london school of music]{"entity": "university", "value": "university"} located
 
 - intent: ask_how_to_apply
   examples: |
@@ -271,8 +288,8 @@ nlu:
     - how can I apply
     - where do I apply
     - where do I apply for the course
-    - how do I apply for (course)
-    - how do I apply for [Computer Science](course) at [university of hull](university)
+    - how do I apply for [english language](course)
+    - how do I apply for [Computer Science](course) at [university of hull]{"entity": "university", "value": "university"}
 
 - intent: ask_deposit_amount
   examples: |
@@ -288,11 +305,16 @@ nlu:
 - intent: ask_academic_level
   examples: |
     - what is the academic level
-    - i want a [postgraduate](academic_level) course
-    - i want a [undergraduate](academic_level) course at [Middlesex University](university)
-    - show me a [postgraduate](academic_level) course
-    - I'm looking for a [postgraduate](academic_level) course
-    - which [postgraduate](academic_level) course  I take
+    - i want a [postgraduate]{"entity": "academic_level", "value": "postgraduate"} course
+    - i want a [undergraduate]{"entity": "academic_level", "value": "undergraduate"} course at [Middlesex University]{"entity": "university", "value": "university"}
+    - show me a [postgraduate]{"entity": "academic_level", "value": "postgraduate"} course
+    - I'm looking for a [postgraduate]{"entity": "academic_level", "value": "postgraduate"} course
+    - which [postgraduate]{"entity": "academic_level", "value": "postgraduate"} course  I take
+    - I am an [undergraduate]{"entity": "academic_level", "value": "undergraduate"}
+    - I am a [postgraduate]{"entity": "academic_level", "value": "postgraduate"}
+    - I am a [doctoral]{"entity": "academic_level", "value": "postgraduate"}
+    - im a [bachelors]{"entity": "academic_level", "value": "undergraduate"}
+    - [masters]{"entity": "academic_level", "value": "postgraduate"}
 
 - intent: ask_postgraduate_type
   examples: |
@@ -337,13 +359,13 @@ nlu:
   examples: |
     - what is the faculty
     - what is the faculty of [software development](course)
-    - what is the faculty of [computer engineering](course) at [middlesex university](university)
+    - what is the faculty of [computer engineering](course) at [middlesex university]{"entity": "university", "value": "university"}
     - what faculty is [forensic science](course) in
-    - what faculty is [criminology](course) at [university of hull](university) in
+    - what faculty is [criminology](course) at [university of hull]{"entity": "university", "value": "university"} in
     - how many faculties are there
     - what faculties are available
-    - how many faculties are there at [university of hull](university)
-    - how many faculties are available at [university of kent](university)
+    - how many faculties are there at [university of hull]{"entity": "university", "value": "university"}
+    - how many faculties are available at [university of kent]{"entity": "university", "value": "university"}
     - list of courses offered by [school of arts](faculty)
     - list of courses offered by the [faculty of science](faculty)
     - list of courses offered by the [School of Natural Sciences](faculty)
@@ -361,19 +383,19 @@ nlu:
 
 - intent: ask_why_university
   examples: |
-    - why should I choose [university of hull](university)
-    - why should I apply to the [university of hull](university)
-    - why should I apply to [university of hull](university)
-    - what is the reason for choosing [university of hull](university)
-    - why do people choose [university of hull](university)
-    - why do students attend the [university of hull](university)
-    - why do students choose [university of hull](university)
-    - is the [university of hull](university) the best university in the world
-    - is the [university of hull](university) the best university in the world for (course)
-    - is the [university of hull](university) good for (course)
-    - is the [university of hull](university) good for me
-    - what is the ranking of [leeds beckett university](university)
-    - what is the ranking of [oxford university](university) in the [uk](country)
+    - why should I choose [university of hull]{"entity": "university", "value": "university"}
+    - why should I apply to the [university of hull]{"entity": "university", "value": "university"}
+    - why should I apply to [university of hull]{"entity": "university", "value": "university"}
+    - what is the reason for choosing [university of hull]{"entity": "university", "value": "university"}
+    - why do people choose [university of hull]{"entity": "university", "value": "university"}
+    - why do students attend the [university of hull]{"entity": "university", "value": "university"}
+    - why do students choose [university of hull]{"entity": "university", "value": "university"}
+    - is the [university of hull]{"entity": "university", "value": "university"} the best university in the world
+    - is the [university of hull]{"entity": "university", "value": "university"} the best university in the world for (course)
+    - is the [university of hull]{"entity": "university", "value": "university"} a good place to study [computer science](course)
+    - is the [university of hull]{"entity": "university", "value": "university"} good for me
+    - what is the ranking of [leeds beckett university]{"entity": "university", "value": "university"}
+    - what is the ranking of [oxford university]{"entity": "university", "value": "university"} in the [uk](country)
 
 - intent: ask_academic_calendar
   examples: |
@@ -405,42 +427,69 @@ nlu:
     - do a multiplication
     - don't be stupid
     - i cant deal with this
+    - this is my budget
+    - budget
 
-- lookup: universities
+- lookup: university
   examples: |
     - Hull University
     - University of Hull
-    - University of Kent
-    - Middlesex University
-    - Cardiff University
-    - Sheffield Hallam University
 
-- lookup: countries
+- lookup: country
   examples: |
-    - United Kingdom
-    - UK
-    - England
-    - Wales
-    - Scotland
-    - Great Britain
-    - Northern Ireland
+    - united kingdom
+    - uk
+    - england
+    - wales
+    - scotland
+    - great britain
+    - northern ireland
 
-- lookup: student_types
+- lookup: international
   examples: |
-    - International
-    - Local
-    - Home
-    - Foreign
+    - international
+    - foreign    
+    - european
+    - african
+    - asian
+    - american
+    - canadian
 
-- lookup: academic_levels
+- lookup: home
   examples: |
-    - undergraduate
+    - local
+    - home
+    - national
+    - domestic
+    - british
+
+- lookup: postgraduate
+  examples: |
     - postgraduate
     - graduate
+    - phd
+    - doctoral
+    - masters
+    - master's
+    - master
+    - postgraduate degree
+    - masters degree
+    - msci
+    - mba
+    - meng
 
-- lookup: postgraduate_types
+- lookup: undergraduate
   examples: |
-    - taught
-    - research
+    - bachelor
+    - undergraduate
+    - undergraduate degree
+    - bachelors degree
 
-#- synonyms: course -> courses
+- lookup: course
+  examples: |
+    - courses
+    - programs
+    - programmes
+    - programmes of study
+    - subject
+    - subjects
