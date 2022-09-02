@@ -133,6 +133,7 @@ nlu:
 
 - intent: ask_course_list
   examples: |
+    - all courses
     - what are the courses
     - what are the courses available
     - do you have courses related to [computer science](course)
@@ -142,7 +143,6 @@ nlu:
 
 - intent: ask_course_details
   examples: |
-    - all courses
     - what is it about
     - what is the course about
     - what are the course contents
@@ -250,6 +250,12 @@ nlu:
     - I need some financial help
     - I need some financial support
 
+- intent: respond_scholarship_level
+  examples: |
+    - I need a scholarship for [phd]{"entity": "funding_type", "value": "phd"} students
+    - [others]{"entity": "funding_type", "value": "otherfundingtypes"}
+    - [undergraduate]{"entity": "funding_type", "value": "otherfundingtypes"}
+
 - intent: ask_course_start_date
   examples: |
     - when is the course starting
@@ -269,6 +275,11 @@ nlu:
     - how can I reach you
     - do you have an email address
     - do you have a phone number
+    - can i reach you
+    - can i call the university
+    - who can I contact
+    - who do i call
+    - who can I contact for more information
 
 - intent: ask_university_address
   examples: |
@@ -315,6 +326,9 @@ nlu:
     - I am a [doctoral]{"entity": "academic_level", "value": "postgraduate"}
     - im a [bachelors]{"entity": "academic_level", "value": "undergraduate"}
     - [masters]{"entity": "academic_level", "value": "postgraduate"}
+    - a [postgraduate]{"entity": "academic_level", "value": "postgraduate"}
+    - its a [bachelors]{"entity": "academic_level", "value": "postgraduate"}
+    - its a [masters degree]{"entity": "academic_level", "value": "postgraduate"}
 
 - intent: ask_postgraduate_type
   examples: |
@@ -468,6 +482,10 @@ nlu:
     - postgraduate
     - graduate
     - phd
+    - phd research
+    - doctor of philosophy
+    - phd degree
+    - phd program
     - doctoral
     - masters
     - master's
@@ -493,3 +511,34 @@ nlu:
     - programmes of study
     - subject
     - subjects
+
+- lookup: phd
+  examples: |
+    - doctoral
+    - phd research
+    - phd degree
+    - phd programme
+    - phd programme of study
+    - phd courses
+    - phd subjects
+    - doctor of philosophy
+    - phd degrees
+    - postgraduate degree
+    - postgraduate research
+
+- lookup: otherfundingtypes
+  examples: |
+    - undergraduate
+    - postgraduate
+    - postgraduate taught
+
+- lookup: scholarship
+  examples: |
+    - grant
+    - grants
+    - funding
+    - scholarships
+    - financial aid
+    - financial assistance
+    - financial support
+    - money

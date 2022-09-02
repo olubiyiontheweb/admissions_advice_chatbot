@@ -6,6 +6,12 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_how_to_apply
+  - action: utter_ask_course_interest
+  - intent: select_course
+  - action: utter_ask_academic_level
+  - intent: ask_academic_level
+  - action: utter_askhow_to_apply
   - intent: farewell
   - action: utter_farewell
 
@@ -13,6 +19,12 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_course_list
+  - action: utter_ask_course_interest
+  - intent: select_course
+  - action: utter_ask_academic_level
+  - intent: ask_academic_level
+  - action: utter_course_details
   - intent: farewell
   - action: utter_farewell
 
@@ -20,6 +32,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_academic_calendar
+  - action: utter_academic_calendar
   - intent: farewell
   - action: utter_farewell
 
@@ -27,6 +41,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_admission_process_fee
+  - action: utter_addmission_process_fee
   - intent: farewell
   - action: utter_farewell
 
@@ -34,6 +50,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_admission_process_duration
+  - action: utter_addmission_process_duration
   - intent: farewell
   - action: utter_farewell
 
@@ -41,6 +59,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_university_contact
+  - action: utter_contact_details
   - intent: farewell
   - action: utter_farewell
 
@@ -48,13 +68,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
-  - intent: farewell
-  - action: utter_farewell
-
-- story: apply for a course
-  steps:
-  - intent: greetings
-  - action: utter_welcome
+  - intent: ask_university_address
+  - action: utter_university_address
   - intent: farewell
   - action: utter_farewell
 
@@ -69,6 +84,12 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_scholarship
+  - intent: ask_scholarship_question
+  - action: utter_ask_scholarship_level
+  - intent: respond_scholarship_level
+  - action: utter_scholarship
+  - action: utter_scholarship_phd
   - intent: farewell
   - action: utter_farewell
 
@@ -76,6 +97,9 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_payment_question
+  - action: utter_how_to_pay_undergraduate
+  - action: utter_how_to_pay_postgraduate
   - intent: farewell
   - action: utter_farewell
 
@@ -83,6 +107,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_for_refund
+  - action: utter_refund
   - intent: farewell
   - action: utter_farewell
 
@@ -90,6 +116,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_course_fee
+  - action: utter_deposit_amount
   - intent: farewell
   - action: utter_farewell
 
@@ -97,6 +125,12 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_how_to_apply
+  - action: utter_how_to_apply
+  - intent: ask_admission_process_duration
+  - action: utter_addmission_process_duration
+  - intent: ask_how_long_feedback
+  - action: utter_how_long_feedback
   - intent: farewell
   - action: utter_farewell
 
@@ -104,6 +138,8 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_why_university
+  - action: utter_why_university
   - intent: farewell
   - action: utter_farewell
 
@@ -111,5 +147,7 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
+  - intent: ask_faculty
+  - action: utter_ask_faculty
   - intent: farewell
   - action: utter_farewell
