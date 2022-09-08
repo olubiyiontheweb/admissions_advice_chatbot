@@ -16,6 +16,8 @@ nlu:
     - hey there
     - hello
     - hello i am [brad](name)
+    - hello its [toby](name) here
+    - hello my name is [james](name)
     - dear sir
     - dear ma
     - hello there
@@ -254,7 +256,7 @@ nlu:
   examples: |
     - I need a scholarship for [phd]{"entity": "funding_type", "value": "phd"} students
     - [others]{"entity": "funding_type", "value": "otherfundingtypes"}
-    - [undergraduate]{"entity": "funding_type", "value": "otherfundingtypes"}
+    - [other]{"entity": "funding_type", "value": "otherfundingtypes"}
 
 - intent: ask_course_start_date
   examples: |
@@ -289,6 +291,8 @@ nlu:
     - where is your location
     - where is your university located
     - how can I locate the university
+    - how do i get to the university
+    - how do i get to your university from the airport
     - how can I locate the [university of california]{"entity": "university", "value": "university"}
     - where is the [middlesex university]{"entity": "university", "value": "university"} located
     - where is the [london school of music]{"entity": "university", "value": "university"} located
@@ -300,6 +304,7 @@ nlu:
     - where do I apply
     - where do I apply for the course
     - how do I apply for [english language](course)
+    - how do I apply for your [maths](course) course
     - how do I apply for [Computer Science](course) at [university of hull]{"entity": "university", "value": "university"}
 
 - intent: ask_deposit_amount
@@ -327,7 +332,7 @@ nlu:
     - im a [bachelors]{"entity": "academic_level", "value": "undergraduate"}
     - [masters]{"entity": "academic_level", "value": "postgraduate"}
     - a [postgraduate]{"entity": "academic_level", "value": "postgraduate"}
-    - its a [bachelors]{"entity": "academic_level", "value": "postgraduate"}
+    - its a [bachelors degree]{"entity": "academic_level", "value": "undergraduate"}
     - its a [masters degree]{"entity": "academic_level", "value": "postgraduate"}
 
 - intent: ask_postgraduate_type
@@ -409,7 +414,9 @@ nlu:
     - is the [university of hull]{"entity": "university", "value": "university"} a good place to study [computer science](course)
     - is the [university of hull]{"entity": "university", "value": "university"} good for me
     - what is the ranking of [leeds beckett university]{"entity": "university", "value": "university"}
+    - why attend [university of hull]{"entity": "university", "value": "university"} instead of other [UK](country) universities
     - what is the ranking of [oxford university]{"entity": "university", "value": "university"} in the [uk](country)
+    - is [university of hull]{"entity": "university", "value": "university"} the best university in the [uk](country)
 
 - intent: ask_academic_calendar
   examples: |
@@ -525,12 +532,6 @@ nlu:
     - phd degrees
     - postgraduate degree
     - postgraduate research
-
-- lookup: otherfundingtypes
-  examples: |
-    - undergraduate
-    - postgraduate
-    - postgraduate taught
 
 - lookup: scholarship
   examples: |

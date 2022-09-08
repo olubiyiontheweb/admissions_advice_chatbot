@@ -12,6 +12,7 @@ intents:
   - defer_admission
   - ask_course_list
   - ask_scholarship_question
+  - respond_scholarship_level
   - ask_university_contact
   - ask_university_address
   - ask_how_to_apply
@@ -35,6 +36,7 @@ intents:
   - ask_student_type
 
 entities:
+  - name
   - course
   - course_url
   - course_fee
@@ -53,8 +55,9 @@ slots:
   name:
     type: text
     mappings:
-      - type: custom
-    influence_conversation: false
+      - type: from_entity
+        entity: name
+    influence_conversation: true
   course:
     type: text
     mappings:
@@ -326,3 +329,6 @@ forms:
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+config:
+  store_entities_as_slots: false

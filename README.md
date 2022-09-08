@@ -29,7 +29,7 @@ An interactive chatbot that utilises published information from a university's w
 
 > rasa telemetry disable (disable reporting anonymous usage)
 
-> rasa run -m models --enable-api --cors * (run this on another terminal)
+> rasa run -m models --enable-api --cors * (run this on another terminal) or rasa nlu shell (use this for tests)
 
 > rasa run actions (run this on another terminal)
 

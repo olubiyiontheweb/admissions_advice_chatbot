@@ -11,7 +11,7 @@ stories:
   - intent: select_course
   - action: utter_ask_academic_level
   - intent: ask_academic_level
-  - action: utter_askhow_to_apply
+  - action: utter_how_to_apply
   - intent: farewell
   - action: utter_farewell
 
@@ -84,7 +84,6 @@ stories:
   steps:
   - intent: greetings
   - action: utter_welcome
-  - intent: ask_scholarship
   - intent: ask_scholarship_question
   - action: utter_ask_scholarship_level
   - intent: respond_scholarship_level
@@ -139,7 +138,8 @@ stories:
   - intent: greetings
   - action: utter_welcome
   - intent: ask_why_university
-  - action: utter_why_university
+  - action: utter_why_university_undergraduate
+  - action: utter_why_university_postgraduate
   - intent: farewell
   - action: utter_farewell
 
@@ -148,6 +148,6 @@ stories:
   - intent: greetings
   - action: utter_welcome
   - intent: ask_faculty
-  - action: utter_ask_faculty
+  - action: utter_faculty
   - intent: farewell
   - action: utter_farewell
