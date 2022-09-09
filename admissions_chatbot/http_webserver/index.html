@@ -9,6 +9,13 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+        <div id="chatbotpage">
+            <div id="chatbotdescription">
+                <h1>Interactive Admissions Advice Chatbot</h1>
+                <p>This chatbot is used to help prospective students find the right program for them.</p>
+                <p>Developed by Oluwatosin in fulfilment of this Research Project.</p>
+            </div>
+        </div>        
         <div 
             id="rasa-chat-widget"
             data-root-element-id="addmissions-advice-chatbot-widget"
@@ -24,3 +31,17 @@
         <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
     </body>
 </html>
+
+<style>
+    #chatbotpage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+    #chatbotdescription {
+        text-align: center;
+    }
+</style>
