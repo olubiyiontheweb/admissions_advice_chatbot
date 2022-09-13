@@ -1,51 +1,130 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+# This files contains your custom actions programmed with python
 
-
-# This is a simple example for a custom action which utters "Hello World!"
-
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
-
+import difflib
 from typing import Any, Text, Dict, List
-
 from rasa_sdk import Action, Tracker
-from rasa_sdk.events import UserUtteranceReverted
+from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
-from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 
-class ActionQueryDB(ActionQueryKnowledgeBase):
+list_of_course_names = []
+
+class ActionQueryCourseDetails(Action):
+    def name(self) -> Text:
+        return "action_query_course_details"
+    
     def __init__(self):
-        # load knowledge base with data from the given file
+        load_course_name_list()
+        
+    def run(self, dispatcher, tracker, domain):
+        course = tracker.get_slot("course")
+        course_det = {}
+        
+        # search for course in coursedb
+        if course is not None:
+            course_det = self.courses_db.get_attribute_of_object(course, "details")
+            
+            dispatcher.utter_custom_json(course_det)
+            
+        else:
+            dispatcher.utter_message("Sorry, I don't know about that course")
+        return []
+        
+class ActionQueryFacultyCourses(Action):
+    def name(self) -> Text:
+        return "action_query_faculty_courses"
+    
+    def __init__(self):
+        load_course_name_list()
+        
+    def run(self, dispatcher, tracker, domain):
+        print("action_query_faculty_courses")
+
+class ActionQueryFacultyUrl(Action):
+    def name(self) -> Text:
+        return "action_query_faculty_url"
+    
+    def __init__(self):
+        # load courses from file
         courses_db = InMemoryKnowledgeBase("hull_courses_faculties.json")
 
-        # overwrite the representation function of the hotel object
-        # by default the representation function is just the name of the object
-        courses_db.set_representation_function_of_object(
-            "course", lambda obj: obj["name"] + " (" + obj["city"] + ")"
-        )
-        
-        d = {}
-        c = '45,4'
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        super().__init__(courses_db)
+        dispatcher.utter_message(text="Hello World!")
+
+        return []
+    
+class ActionQueryCourseUrl(Action):
+    def name(self) -> Text:
+        return "action_query_course_url"
+    
+    def __init__(self):
+        load_course_name_list()
+        
+    def run(self, dispatcher, tracker, domain):
+        print("action_query_course_url")
+
+class ActionQueryCourseFee(Action):
+    def name(self) -> Text:
+        return "action_query_course_fee"
+    
+    def __init__(self):
+        load_course_name_list()
+        
+    def run(self, dispatcher, tracker, domain):
+        print("action_query_course_fee")
+    
+class ActionQueryCourseDuration(Action):
+    def name(self) -> Text:
+        return "action_query_course_duration"
+    
+    def __init__(self):
+        load_course_name_list()
+        
+    def run(self, dispatcher, tracker, domain):
+        print("action_query_course_duration")
+    
+class ActionQueryCourseIntake(Action):
+    def name(self) -> Text:
+        return "action_query_course_intake"
+    
+    def __init__(self):
+        courses_data = load_course_name_list()
+        
+    def run(self, dispatcher, tracker, domain):
+        course = tracker.get_slot("course")
+        courses = []
+        
+        if course is not None:
+            courses = difflib.get_close_matches(course, list_of_course_names)
+            
+            if len(courses) > 0:
+                course_index = list_of_course_names.index(courses[0])
+                tracker.se
+                dispatcher.utter_message("The course {0} is available in the following intakes: {1}".format(course, self.courses_data[course_index]["intake"]))
+                return [SlotSet("course_intake", self.courses_data[course_index]["intake"])]
+            else:
+                dispatcher.utter_message("Sorry, I don't know about that course")
+        
+        return []
+    
+class ActionQueryCourseStartDate(Action):
+    def name(self) -> Text:
+        return "action_query_course_start_date"
+    
+    def __init__(self):
+        load_course_name_list()
+        
+    def run(self, dispatcher, tracker, domain):
+        print("action_query_course_start_date")
+        
+def load_course_name_list():
+    # load courses from file
+    courses_db = InMemoryKnowledgeBase("hull_courses_faculties.json")
+    
+    for course_obj in courses_db.data:
+        list_of_course_names.append(course_obj["course"])
+        
+    return courses_db.data

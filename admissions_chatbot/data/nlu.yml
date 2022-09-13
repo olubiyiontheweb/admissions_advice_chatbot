@@ -254,6 +254,7 @@ nlu:
 
 - intent: respond_scholarship_level
   examples: |
+    - [phd]{"entity": "funding_type", "value": "phd"}
     - I need a scholarship for [phd]{"entity": "funding_type", "value": "phd"} students
     - [others]{"entity": "funding_type", "value": "otherfundingtypes"}
     - [other]{"entity": "funding_type", "value": "otherfundingtypes"}
@@ -543,3 +544,16 @@ nlu:
     - financial assistance
     - financial support
     - money
+
+- lookup: otherfundingtypes
+  examples: |
+    - bursary
+    - others
+    - other
+    - undergraduate
+    - postgraduate taught
+    - masters
+    - bsc
+    - msc
+    - bachelor
+    - master

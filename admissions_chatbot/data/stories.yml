@@ -2,105 +2,90 @@ version: "3.1"
 
 stories:
 
-- story: enquire about admission
-  steps:
-  - intent: greetings
-  - action: utter_welcome
-  - intent: ask_how_to_apply
-  - action: utter_ask_course_interest
-  - intent: select_course
-  - action: utter_ask_academic_level
-  - intent: ask_academic_level
-  - action: utter_how_to_apply
-  - intent: farewell
-  - action: utter_farewell
-
-- story: enquire about a course
-  steps:
-  - intent: greetings
-  - action: utter_welcome
-  - intent: ask_course_list
-  - action: utter_ask_course_interest
-  - intent: select_course
-  - action: utter_ask_academic_level
-  - intent: ask_academic_level
-  - action: utter_course_details
-  - intent: farewell
-  - action: utter_farewell
-
 - story: check the academic calendar
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_academic_calendar
   - action: utter_academic_calendar
-  - intent: farewell
-  - action: utter_farewell
 
 - story: check the admission process fee
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_admission_process_fee
   - action: utter_addmission_process_fee
-  - intent: farewell
-  - action: utter_farewell
 
 - story: check the admission process duration
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_admission_process_duration
   - action: utter_addmission_process_duration
-  - intent: farewell
-  - action: utter_farewell
 
 - story: request for contact details
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_university_contact
   - action: utter_contact_details
-  - intent: farewell
-  - action: utter_farewell
 
 - story: request for university address
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_university_address
   - action: utter_university_address
+  - checkpoint: request for contact details
   - intent: farewell
   - action: utter_farewell
 
-- story: find out about the best course for me
+- story: why attend this university
   steps:
-  - intent: greetings
-  - action: utter_welcome
+  - intent: ask_why_university
+  - action: utter_why_university_undergraduate
+  - action: utter_why_university_postgraduate
+
+- story: faculty questions
+  steps:
+  - intent: ask_faculty
+  - action: utter_faculty
   - intent: farewell
   - action: utter_farewell
+
+- story: defer admission
+  steps:
+  - intent: defer_admission
+  - action: utter_defer_admission
+
+- story: entry requirements
+  steps:
+  - intent: ask_entry_requirements
+  - action: utter_entry_requirements
+
+- story: deposit amount
+  steps:
+  - intent: ask_deposit_amount
+  - action: utter_deposit_amount
+
+- story: postgraduate type
+  steps:
+  - intent: ask_postgraduate_type
+  - action: utter_postgraduate_type
+
+- story: visa international students
+  steps:
+  - intent: ask_visa_international_students
+  - action: utter_international_students_visa
+
+- story: future prospects
+  steps:
+  - intent: ask_future_prospects
+  - action: utter_future_prospects
 
 - story: how to get a scholarship
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_scholarship_question
   - action: utter_ask_scholarship_level
   - intent: respond_scholarship_level
   - action: utter_scholarship
   - action: utter_scholarship_phd
-  - intent: farewell
-  - action: utter_farewell
 
 - story: how to make payments
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_payment_question
   - action: utter_how_to_pay_undergraduate
   - action: utter_how_to_pay_postgraduate
-  - intent: farewell
-  - action: utter_farewell
 
 - story: withdraw my application
   steps:
@@ -108,46 +93,124 @@ stories:
   - action: utter_welcome
   - intent: ask_for_refund
   - action: utter_refund
+  - checkpoint: defer admission
   - intent: farewell
   - action: utter_farewell
 
-- story: questions about enrolment
+- story: course start date
   steps:
-  - intent: greetings
-  - action: utter_welcome
+  - intent: ask_course_start_date
+  - action: utter_course_start_date
+
+- story: questions about course fee
+  steps:
   - intent: ask_course_fee
-  - action: utter_deposit_amount
+  - action: action_query_course_details
+  - action: action_query_course_intake
+  - action: utter_course_fee
+
+- story: enquire about a course
+  steps:
+  - intent: ask_course_list
+  - action: utter_ask_course_interest
+  - intent: select_course
+  - action: utter_ask_academic_level
+  - intent: ask_academic_level
+  - action: action_query_course_details
+  - action: utter_course_details
+  - checkpoint: course start date
+  - checkpoint: questions about course fee
+  - checkpoint: check the admission process duration
+  - checkpoint: how to get a scholarship
+  - intent: farewell
+  - action: utter_farewell
+
+- story: enquire about admission
+  steps:
+  - intent: ask_how_to_apply
+  - action: utter_ask_course_interest
+  - intent: select_course
+  - action: utter_ask_academic_level
+  - intent: ask_academic_level
+  - action: utter_how_to_apply
+  - checkpoint: check the admission process fee
+  - checkpoint: enquire about a course
+  - checkpoint: how to make payments
+  - checkpoint: check the admission process duration
+  - checkpoint: check the academic calendar
   - intent: farewell
   - action: utter_farewell
 
 - story: application process
   steps:
-  - intent: greetings
-  - action: utter_welcome
   - intent: ask_how_to_apply
   - action: utter_how_to_apply
   - intent: ask_admission_process_duration
   - action: utter_addmission_process_duration
   - intent: ask_how_long_feedback
   - action: utter_how_long_feedback
-  - intent: farewell
-  - action: utter_farewell
-
-- story: why attend this university
+  
+- story: utter help after multiple attempts with no response
   steps:
-  - intent: greetings
-  - action: utter_welcome
-  - intent: ask_why_university
-  - action: utter_why_university_undergraduate
-  - action: utter_why_university_postgraduate
-  - intent: farewell
-  - action: utter_farewell
+  - intent: out_of_scope
+  - action: utter_unhandled_scope
+  - intent: out_of_scope
+  - action: utter_ask_rephrase
+  - intent: out_of_scope
+  - action: utter_ask_admissions_advice_form
 
-- story: faculty questions
+- story: utter help after multiple attempts with affirmative intent
   steps:
-  - intent: greetings
-  - action: utter_welcome
-  - intent: ask_faculty
-  - action: utter_faculty
-  - intent: farewell
-  - action: utter_farewell
+  - intent: out_of_scope
+  - action: utter_unhandled_scope
+  - intent: out_of_scope
+  - action: utter_default
+  - intent: out_of_scope
+  - action: utter_ask_admissions_advice_form
+  - intent: accept
+  - action: admissions_advice_form
+  - active_loop: admissions_advice_form
+
+- story: utter help after multiple attempts with deny intent
+  steps:
+  - intent: out_of_scope
+  - action: utter_unhandled_scope
+  - intent: out_of_scope
+  - action: utter_default
+  - intent: out_of_scope
+  - action: utter_ask_admissions_advice_form
+  - intent: decline
+  - action: admissions_advice_form
+  - active_loop: admissions_advice_form
+
+- story: utter after default fallback twice
+  steps:
+  - intent: out_of_scope
+  - action: utter_default
+  - intent: out_of_scope
+  - action: utter_ask_admissions_advice_form
+  - intent: accept
+  - action: admissions_advice_form
+  - active_loop: admissions_advice_form
+
+- story: utter after respond unhandled intents
+  steps:
+  - intent: unhandled_intent
+  - action: utter_unhandled_scope
+  - intent: unhandled_intent
+  - action: utter_unhandled_scope
+  - action: utter_ask_admissions_advice_form
+  - intent: accept
+  - action: admissions_advice_form
+  - active_loop: admissions_advice_form
+
+- story: help after rephrase when a message has a low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_ask_rephrase
+  - intent: nlu_fallback
+  - action: utter_ask_rephrase
+  - action: utter_ask_admissions_advice_form
+  - intent: accept
+  - action: admissions_advice_form
+  - active_loop: admissions_advice_form

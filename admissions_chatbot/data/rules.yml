@@ -12,13 +12,16 @@ rules:
   steps:
   - intent: farewell
   - action: utter_farewell
-  
-- rule: respond unhandled intents
+
+- rule: Submit admission advice form
+  condition:
+  # the form should be active
+  - active_loop: admissions_advice_form
   steps:
-  - intent: unhandled_intent
-  - action: utter_unhandled_scope
-  
-- rule: rephrase when a message has a low NLU confidence
-  steps:
-  - intent: nlu_fallback
-  - action: utter_ask_rephrase
+  # deactivate the form
+  - action: admissions_advice_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values

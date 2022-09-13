@@ -2,8 +2,9 @@ version: "3.1"
 
 intents:
   - greetings:
-      use_entities: []
-  - farewell
+      use_entities: [name]
+  - farewell:
+      use_entities: [name]
   - chitchat
   - accept
   - decline
@@ -50,6 +51,7 @@ entities:
   - country
   - postgraduate_type
   - funding_type
+  - course_start_date
 
 slots:
   name:
@@ -63,6 +65,7 @@ slots:
     mappings:
       - type: from_entity
         entity: course
+        intent: [select_course, ask_course_list, ask_course_details, ask_entry_requirements, ask_course_fee, defer_admission, ask_how_to_apply, ask_academic_level, ask_how_long_feedback, ask_visa_international_students, ask_admission_process_fee, ask_admission_process_duration, ask_faculty, ask_future_prospects]
     influence_conversation: true
   academic_level:
     type: text
@@ -75,30 +78,34 @@ slots:
     mappings:
       - type: from_entity
         entity: faculty
-    influence_conversation: true
+        intent: [ask_faculty]
+    influence_conversation: false
   university:
     type: text
     mappings:
       - type: from_entity
         entity: university
-    influence_conversation: true
+        intent: [ask_university_contact, ask_university_address, ask_how_to_apply, ask_academic_level, ask_faculty, ask_why_university, ]
+    influence_conversation: false
   student_type:
     type: text
     mappings:
       - type: from_entity
         entity: student_type
+        intent: [ask_student_type, ask_course_fee]
     influence_conversation: true
   country:
     type: text
     mappings:
       - type: from_entity
         entity: country
-    influence_conversation: true
+    influence_conversation: false
   postgraduate_type:
     type: text
     mappings:
       - type: from_entity
         entity: postgraduate_type
+        intient: [ask_postgraduate_type]
     influence_conversation: true
   course_fee:
     type: text
@@ -129,13 +136,30 @@ slots:
     mappings:
       - type: from_entity
         entity: funding_type
+        intent: [respond_scholarship_level]
     influence_conversation: true
+  course_start_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course_start_date
+    influence_conversation: false
 
 actions:
-  - action_query_knowledge_base
+  - action_query_course_details
+  - action_query_faculty_courses
+  - action_query_faculty_url
+  - action_query_course_url
+  - action_query_course_fee
+  - action_query_course_duration
+  - action_query_course_intake
+  - action_query_course_start_date
 
 responses:
-  utter_welcome:  
+  utter_welcome:
+  - text: >
+      Hey {name}! Thanks for contacting us.
+      I am an admissions advice chatbot and I can help you with all your enquiries.
   - text: >
       Welcome to the admissions chatbot. I can help you with the following questions:
           - 1. Enquire about admission
@@ -153,9 +177,6 @@ responses:
           - 12. Check for refund
           - 13. Defer admission
           - 14. Check the scholarship question
-  - text: >
-      Hey {name}! Thanks for contacting us.
-      I am an admissions advice chatbot and I can help you with all your enquiries.
   - text: >-
       Hi there! I'm the admissions chatbot for the University of Hull.
       I can answer your courses and admissions related questions
@@ -341,12 +362,6 @@ responses:
   utter_postgraduate_type:
   - text: "The course {course} is {postgraduate_type}."
 
-  utter_affirm:
-  - text: "Yes"
-
-  utter_deny:
-  - text: "No"
-
   utter_unhandled_scope:
   - text: "Sorry, I'm not sure I understand that. Can you ask me something else?"  
 
@@ -357,8 +372,34 @@ responses:
   utter_default:
   - text: "I'm sorry, I can't help with that."
 
+  utter_ask_admissions_advice_form:
+  - text: "Would you like to fill the admissions advice form?"
+
+  utter_ask_admissions_advice_form_course:
+  - text: "What course are you interested in?"
+
+  utter_ask_admissions_admissions_advice_form_academic_level:
+  - text: "What academic level are you interested in? undergraduate or postgraduate?"
+
+  utter_ask_admissions_advice_form_student_type:
+  - text: "What type of student are you? Home or international student?"
+
+  utter_ask_admissions_advice_form_funding_type:
+  - text: "What type of funding would you like to know about? phd research or other scholarship opportunities?"
+
+  utter_submit:
+  - text: "Thank you for filling the form."
+
+  utter_slots_values:
+  - text: >
+      The values provided are as follows:
+      course: {course}
+      academic_level: {academic_level}
+      student_type: {student_type}
+      funding_type: {funding_type}
+
 forms:
-  bot_form:
+  admissions_advice_form:
     ignored_intents:
     - greetings
     - farewell
@@ -367,16 +408,13 @@ forms:
     - out_of_scope
     required_slots:
         - course
-        - university
-        - faculty
         - academic_level
         - student_type
-        - country
-        - postgraduate_type
+        - funding_type
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
 config:
-  store_entities_as_slots: false
+  store_entities_as_slots: true
