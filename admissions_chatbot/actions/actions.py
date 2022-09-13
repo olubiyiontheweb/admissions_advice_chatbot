@@ -44,5 +44,8 @@ class ActionQueryDB(ActionQueryKnowledgeBase):
         courses_db.set_representation_function_of_object(
             "course", lambda obj: obj["name"] + " (" + obj["city"] + ")"
         )
+        
+        d = {}
+        c = '45,4'
 
         super().__init__(courses_db)
