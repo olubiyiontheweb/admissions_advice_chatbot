@@ -20,14 +20,10 @@ class ActionQueryCourseDetails(Action):
         course = tracker.get_slot("course")
         course_det = {}
         
-        # search for course in coursedb
-        if course is not None:
-            course_det = self.courses_db.get_attribute_of_object(course, "details")
-            
-            dispatcher.utter_custom_json(course_det)
-            
-        else:
-            dispatcher.utter_message("Sorry, I don't know about that course")
+        # display a list of all available courses
+        
+        dispatcher.utter_custom_message("Here are the list of courses available")
+        dispatcher.utter_custom_message(str(list_of_course_names))
         return []
         
 class ActionQueryFacultyCourses(Action):
@@ -92,7 +88,7 @@ class ActionQueryCourseIntake(Action):
         return "action_query_course_intake"
     
     def __init__(self):
-        courses_data = load_course_name_list()
+        self.courses_data = load_course_name_list()
         
     def run(self, dispatcher, tracker, domain):
         course = tracker.get_slot("course")
@@ -103,9 +99,8 @@ class ActionQueryCourseIntake(Action):
             
             if len(courses) > 0:
                 course_index = list_of_course_names.index(courses[0])
-                tracker.se
-                dispatcher.utter_message("The course {0} is available in the following intakes: {1}".format(course, self.courses_data[course_index]["intake"]))
-                return [SlotSet("course_intake", self.courses_data[course_index]["intake"])]
+                dispatcher.utter_message("The course {0} is available in the following intakes: {1}".format(course, self.courses_data[course_index]["intake"]))                
+                return [SlotSet("course_intake", self.courses_data[course_index]["intake"]), SlotSet("course_fee", "Home student: {0}, International Student: {1}".format(self.courses_data[course_index]["home_fee"], self.courses_data[course_index]["international_fee"]))]
             else:
                 dispatcher.utter_message("Sorry, I don't know about that course")
         
