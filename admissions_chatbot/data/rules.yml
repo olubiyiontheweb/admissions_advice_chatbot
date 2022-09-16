@@ -8,6 +8,12 @@ rules:
     - intent: greetings
     - action: utter_welcome
 
+- rule: chitchat user
+  conversation_start: true 
+  steps:
+    - intent: chitchat
+    - action: utter_welcome
+
 - rule: bid them farewell
   steps:
   - intent: farewell

@@ -61,6 +61,7 @@ class ActionQueryCourseUrl(Action):
         return "action_query_course_url"
     
     def __init__(self):
+        hull_base_url = "https://www.hull.ac.uk"
         load_course_name_list()
         
     def run(self, dispatcher, tracker, domain):

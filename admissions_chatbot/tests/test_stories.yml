@@ -1,13 +1,9 @@
 #### This file contains tests to evaluate that the admissions advice chatbot behaves as expected.
 
 stories:
-- story: happy path 1
+- story: greetings test
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      hello i'm gabriel!
+    intent: greetings
+  - action: utter_welcome

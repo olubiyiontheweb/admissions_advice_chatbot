@@ -1,0 +1,48 @@
+[
+  {
+    "text": "why attend university of hull instead of other UK universities",
+    "entities": [
+      {
+        "start": 11,
+        "end": 29,
+        "value": "university",
+        "entity": "university"
+      },
+      {
+        "start": 47,
+        "end": 49,
+        "value": "UK",
+        "entity": "country"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "university",
+        "start": 11,
+        "end": 29,
+        "confidence_entity": 0.8148146271705627,
+        "value": "university",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "university",
+        "start": 38,
+        "end": 40,
+        "confidence_entity": 0.6917088627815247,
+        "value": "of",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "country",
+        "start": 47,
+        "end": 49,
+        "confidence_entity": 0.9582821130752563,
+        "value": "UK",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

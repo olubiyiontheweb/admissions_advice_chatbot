@@ -1,0 +1,6 @@
+version: "3.1"
+stories:
+- story: greetings test (.\tests\test_stories.yml)
+  steps:
+  - intent: greetings  # predicted: greetings: hello i'm [gabriel](name)!
+  - action: utter_welcome

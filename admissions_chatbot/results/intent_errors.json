@@ -1,0 +1,42 @@
+[
+  {
+    "text": "goodevening",
+    "intent": "greetings",
+    "intent_prediction": {
+      "name": "unhandled_intent",
+      "confidence": 0.5091119408607483
+    }
+  },
+  {
+    "text": "goodafternoon",
+    "intent": "greetings",
+    "intent_prediction": {
+      "name": "unhandled_intent",
+      "confidence": 0.5091119408607483
+    }
+  },
+  {
+    "text": "how are you",
+    "intent": "greetings",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.6768299341201782
+    }
+  },
+  {
+    "text": "how are you doing",
+    "intent": "greetings",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.5611419677734375
+    }
+  },
+  {
+    "text": "how are you doing today",
+    "intent": "greetings",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.783140242099762
+    }
+  }
+]

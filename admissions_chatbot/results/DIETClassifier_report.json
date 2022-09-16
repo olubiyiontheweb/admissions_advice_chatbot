@@ -1,0 +1,84 @@
+{
+  "postgraduate_type": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "name": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
+  "funding_type": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "university": {
+    "precision": 0.9857142857142858,
+    "recall": 1.0,
+    "f1-score": 0.9928057553956835,
+    "support": 69,
+    "confused_with": {}
+  },
+  "country": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "faculty": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 16,
+    "confused_with": {}
+  },
+  "academic_level": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 16,
+    "confused_with": {}
+  },
+  "student_type": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 13,
+    "confused_with": {}
+  },
+  "course": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 79,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.995260663507109,
+    "recall": 1.0,
+    "f1-score": 0.997624703087886,
+    "support": 210
+  },
+  "macro avg": {
+    "precision": 0.9984126984126984,
+    "recall": 1.0,
+    "f1-score": 0.9992006394884092,
+    "support": 210
+  },
+  "weighted avg": {
+    "precision": 0.9953061224489796,
+    "recall": 1.0,
+    "f1-score": 0.9976361767728674,
+    "support": 210
+  },
+  "accuracy": 0.9994761655316919
+}
