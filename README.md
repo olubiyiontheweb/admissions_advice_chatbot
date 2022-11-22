@@ -1,6 +1,10 @@
 # admissions_advice_chatbot
 An interactive chatbot that utilises published information from a university's website to chat about their courses, developed using the RASA Conversational AI framework. https://rasa.com/open-source/
 
+![Greeting on chat widget](https://github.com/olubiyiontheweb/admissions_advice_chatbot/blob/master/name_used_to_greet.png)
+
+![Retrieve course name from conversation](https://github.com/olubiyiontheweb/admissions_advice_chatbot/blob/master/course%20prediction.png)
+
 #### Execute the Web scraping tool by following the steps below
 
 > install python 3.8 (if it's not already installed)
